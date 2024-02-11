@@ -5,7 +5,7 @@ import { StyleSheet, Text, View } from 'react-native'
 const RootScreen: React.FC = () => {
   return (
     <View style={styles.container}>
-      <Text>Open up App.tsx to start working on your app!</Text>
+      <Text>Welcome to React Native + Expo</Text>
       <Text>App Name : {process.env.EXPO_PUBLIC_APP_NAME}</Text>
       <Text>App Version : {process.env.EXPO_PUBLIC_APP_VERSION}</Text>
       <Text>Build Number : {process.env.EXPO_PUBLIC_BUILD_NUMBER}</Text>
@@ -21,7 +21,7 @@ export default RootScreen
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
+    backgroundColor: 'skyblue',
     alignItems: 'center',
     justifyContent: 'center'
   }

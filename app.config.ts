@@ -39,9 +39,15 @@ const appConfig: ExpoConfig = {
   web: {
     favicon: './assets/favicon.png'
   },
+  updates: {
+    url: 'https://u.expo.dev/3a9278b0-f528-47dd-835a-48e6a8e9bd1e'
+  },
+  runtimeVersion: {
+    policy: 'appVersion'
+  },
   extra: {
     eas: {
-      projectId: '42ed213d-a694-4e96-8eb0-d522430b11b9'
+      projectId: '3a9278b0-f528-47dd-835a-48e6a8e9bd1e'
     }
   }
 }
