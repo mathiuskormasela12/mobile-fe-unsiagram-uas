@@ -1,5 +1,5 @@
 import React from 'react'
-import { Text, Image, View, KeyboardAvoidingView, TouchableWithoutFeedback, Keyboard, ScrollView } from 'react-native'
+import { Text, Image, View, KeyboardAvoidingView, TouchableWithoutFeedback, Keyboard, ScrollView, Platform } from 'react-native'
 import { Ionicons, FontAwesome5 } from '@expo/vector-icons'
 import styles from './styles'
 import { ColorNeutral, Layout } from '@src/themes'
@@ -14,8 +14,18 @@ const RegisterScreen: React.FC = () => {
     <SafeAreaView style={styles.page}>
       <HeaderAuth />
       <View style={[Layout.container, Layout.fullPage]}>
-        <KeyboardAvoidingView behavior='position' style={styles.main}>
-          <ScrollView showsVerticalScrollIndicator={false}>
+        <ScrollView
+          showsVerticalScrollIndicator={false}
+          alwaysBounceVertical={false}
+          contentContainerStyle={styles.scrollView}
+        >
+          <KeyboardAvoidingView
+            behavior={Platform.select({
+              android: 'height',
+              ios: 'position'
+            })}
+            style={styles.main}
+          >
             <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
               <View style={Layout.fullPage}>
                 <View style={styles.header}>
@@ -23,7 +33,9 @@ const RegisterScreen: React.FC = () => {
                     source={require('../../../../assets/img/unsia.png')}
                     style={styles.img}
                   />
-                  <Text style={styles.title}>Welcome to Unsiagram</Text>
+                  <Text style={styles.title}>
+                    Welcome to Unsiagram
+                  </Text>
                 </View>
                 <View style={styles.form}>
                   <View style={styles.control}>
@@ -98,8 +110,8 @@ const RegisterScreen: React.FC = () => {
                 </View>
               </View>
             </TouchableWithoutFeedback>
-          </ScrollView>
-        </KeyboardAvoidingView>
+          </KeyboardAvoidingView>
+        </ScrollView>
       </View>
     </SafeAreaView>
   )

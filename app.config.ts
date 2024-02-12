@@ -17,7 +17,7 @@ const appConfig: ExpoConfig = {
   userInterfaceStyle: 'light',
   splash: {
     image: `./assets/${APP_VARIANT}/splash.png`,
-    resizeMode: 'contain',
+    resizeMode: 'cover',
     backgroundColor: '#ffffff'
   },
   assetBundlePatterns: [

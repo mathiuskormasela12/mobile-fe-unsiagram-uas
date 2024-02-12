@@ -40,6 +40,9 @@ const styles = StyleSheet.create({
     fontSize: s(14),
     color: ColorPrimary.primary50,
     marginBottom: s(10)
+  },
+  scrollView: {
+    flexGrow: 1
   }
 })
 
