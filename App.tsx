@@ -1,8 +1,10 @@
 import RootScreen from '@src/RootScreen'
 import { ReduxWrapper } from '@src/components'
-import React, { Fragment, useEffect } from 'react'
+import React, { useEffect } from 'react'
 import JailMonkey from 'jail-monkey'
 import { Alert, BackHandler } from 'react-native'
+import { SafeAreaProvider } from 'react-native-safe-area-context'
+import { Layout } from '@src/themes'
 
 export default function App (): React.ReactNode {
   const handleExitApp = (): void => {
@@ -22,10 +24,10 @@ export default function App (): React.ReactNode {
   }, [])
 
   return (
-   <Fragment>
+   <SafeAreaProvider style={Layout.fullPage}>
     <ReduxWrapper>
       <RootScreen />
     </ReduxWrapper>
-   </Fragment>
+   </SafeAreaProvider>
   )
 }
