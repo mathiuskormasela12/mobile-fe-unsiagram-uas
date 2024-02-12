@@ -22,7 +22,9 @@ const styles = StyleSheet.create({
     fontFamily: Fonts.semiBold,
     textAlign: 'center',
     marginTop: s(7),
-    fontWeight: 'bold'
+    fontWeight: 'bold',
+    width: s(320),
+    lineHeight: s(32)
   },
   page: {
     flex: 1,
