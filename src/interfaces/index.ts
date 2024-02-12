@@ -1,3 +1,7 @@
 export * from './IAppConfig'
 export * from './ICounterReduxState'
 export * from './ISafeAreaViewProps'
+export * from './ILabelProps'
+export * from './IInputProps'
+export * from './IButtonProps'
+export * from './IBackButtonProps'

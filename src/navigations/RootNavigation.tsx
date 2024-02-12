@@ -11,7 +11,7 @@ const RootNavigation: React.FC = () => {
   return (
     <NavigationContainer>
       <Stack.Navigator
-        initialRouteName='LoginScreen'
+        initialRouteName='RegisterScreen'
         screenOptions={{
           headerShown: false
         }}
