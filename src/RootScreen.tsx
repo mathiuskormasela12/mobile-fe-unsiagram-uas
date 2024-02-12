@@ -2,7 +2,7 @@ import { StatusBar } from 'expo-status-bar'
 import React, { Fragment } from 'react'
 import { ColorNeutral, Layout } from '@src/themes'
 import RootNavigation from '@src/navigations/RootNavigation'
-import useRootScreen from './hooks/useRootScreen'
+import { useRootScreen } from './hooks'
 import { View } from 'react-native'
 
 const RootScreen: React.FC = () => {

@@ -3,7 +3,7 @@ import { useCallback, useEffect, useState } from 'react'
 import { loadAsync } from 'expo-font'
 import * as SplashScreen from 'expo-splash-screen'
 
-const useRootScreen: RootScreenHook = () => {
+export const useRootScreen: RootScreenHook = () => {
   const [isAppReady, setIsAppReady] = useState <boolean>(false)
 
   useEffect(() => {
@@ -36,5 +36,3 @@ const useRootScreen: RootScreenHook = () => {
     isAppReady
   }
 }
-
-export default useRootScreen
