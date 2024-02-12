@@ -45,6 +45,9 @@ const appConfig: ExpoConfig = {
   runtimeVersion: {
     policy: 'appVersion'
   },
+  plugins: [
+    'expo-font'
+  ],
   extra: {
     eas: {
       projectId: '3a9278b0-f528-47dd-835a-48e6a8e9bd1e'
