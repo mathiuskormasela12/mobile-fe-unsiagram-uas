@@ -33,7 +33,7 @@ const styles = StyleSheet.create({
     marginTop: s(35)
   },
   control: {
-    marginBottom: s(10)
+    marginBottom: s(18)
   },
   rightText: {
     fontFamily: Fonts.base,
