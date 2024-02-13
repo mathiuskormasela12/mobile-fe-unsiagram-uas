@@ -54,7 +54,7 @@ const LoginScreen: React.FC = () => {
                               <Ionicons
                                 name='mail-sharp'
                                 color={ColorNeutral.neutral50}
-                                size={s(13)}
+                                size={s(16)}
                               />
                             }
                             message={errors?.email?.message ?? undefined}
@@ -79,7 +79,7 @@ const LoginScreen: React.FC = () => {
                               <FontAwesome5
                                 name='lock'
                                 color={ColorNeutral.neutral50}
-                                size={s(13)}
+                                size={s(16)}
                               />
                             }
                             onChangeText={onChange}

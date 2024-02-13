@@ -54,7 +54,7 @@ const RegisterScreen: React.FC = () => {
                               <Ionicons
                                 name='person-sharp'
                                 color={ColorNeutral.neutral50}
-                                size={s(13)}
+                                size={s(16)}
                               />
                             }
                             message={errors?.firstName?.message ?? undefined}
@@ -79,7 +79,7 @@ const RegisterScreen: React.FC = () => {
                               <Ionicons
                                 name='person-sharp'
                                 color={ColorNeutral.neutral50}
-                                size={s(13)}
+                                size={s(16)}
                               />
                             }
                             message={errors?.lastName?.message ?? undefined}
@@ -104,7 +104,7 @@ const RegisterScreen: React.FC = () => {
                               <Ionicons
                                 name='mail-sharp'
                                 color={ColorNeutral.neutral50}
-                                size={s(13)}
+                                size={s(16)}
                               />
                             }
                             message={errors?.email?.message ?? undefined}
@@ -129,7 +129,7 @@ const RegisterScreen: React.FC = () => {
                               <FontAwesome5
                                 name='lock'
                                 color={ColorNeutral.neutral50}
-                                size={s(13)}
+                                size={s(16)}
                               />
                             }
                             onChangeText={onChange}
@@ -155,7 +155,7 @@ const RegisterScreen: React.FC = () => {
                               <FontAwesome5
                                 name='lock'
                                 color={ColorNeutral.neutral50}
-                                size={s(13)}
+                                size={s(16)}
                               />
                             }
                             secureTextEntry={true}
