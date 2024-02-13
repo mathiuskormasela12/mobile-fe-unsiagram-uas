@@ -1,6 +1,6 @@
 import React from 'react'
 import { Text, Image, View, KeyboardAvoidingView, TouchableWithoutFeedback, Keyboard, ScrollView } from 'react-native'
-import { Ionicons, FontAwesome5 } from '@expo/vector-icons'
+import { Octicons } from '@expo/vector-icons'
 import styles from './styles'
 import { ColorNeutral, Layout } from '@src/themes'
 import { Input, Label, Button, SafeAreaView, HeaderAuth } from '@src/components'
@@ -51,8 +51,8 @@ const RegisterScreen: React.FC = () => {
                         return (
                           <Input
                             leftIcon={
-                              <Ionicons
-                                name='person-sharp'
+                              <Octicons
+                                name='person'
                                 color={ColorNeutral.neutral50}
                                 size={s(16)}
                               />
@@ -76,8 +76,8 @@ const RegisterScreen: React.FC = () => {
                         return (
                           <Input
                             leftIcon={
-                              <Ionicons
-                                name='person-sharp'
+                              <Octicons
+                                name='person'
                                 color={ColorNeutral.neutral50}
                                 size={s(16)}
                               />
@@ -101,8 +101,8 @@ const RegisterScreen: React.FC = () => {
                         return (
                           <Input
                             leftIcon={
-                              <Ionicons
-                                name='mail-sharp'
+                              <Octicons
+                                name='mail'
                                 color={ColorNeutral.neutral50}
                                 size={s(16)}
                               />
@@ -126,7 +126,7 @@ const RegisterScreen: React.FC = () => {
                         return (
                           <Input
                             leftIcon={
-                              <FontAwesome5
+                              <Octicons
                                 name='lock'
                                 color={ColorNeutral.neutral50}
                                 size={s(16)}
@@ -152,7 +152,7 @@ const RegisterScreen: React.FC = () => {
                         return (
                           <Input
                             leftIcon={
-                              <FontAwesome5
+                              <Octicons
                                 name='lock'
                                 color={ColorNeutral.neutral50}
                                 size={s(16)}

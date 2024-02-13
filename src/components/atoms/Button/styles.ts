@@ -1,8 +1,8 @@
 import { s } from '@src/helpers'
 import { ColorNeutral, ColorPrimary, Fonts } from '@src/themes'
-import { type DimensionValue, StyleSheet } from 'react-native'
+import { type DimensionValue, StyleSheet, Platform } from 'react-native'
 
-const buttonHeight: number = s(54)
+const buttonHeight = Platform.select({ ios: s(54), android: s(52) })
 const buttonWidth: DimensionValue = '100%'
 
 const styles = StyleSheet.create({

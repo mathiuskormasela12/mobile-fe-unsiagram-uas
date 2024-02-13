@@ -1,9 +1,9 @@
 import { type IInputProps } from '@src/interfaces'
 import React, { Fragment, useCallback, useState } from 'react'
 import { Text, TextInput, View } from 'react-native'
-import { Ionicons } from '@expo/vector-icons'
+import { Octicons, MaterialIcons } from '@expo/vector-icons'
 import style from './styles'
-import { ColorNeutral } from '@src/themes'
+import { ColorError, ColorNeutral } from '@src/themes'
 import { s } from '@src/helpers'
 
 const Input: React.FC<IInputProps> = ({ message, leftIcon, rightIcon, ...props }) => {
@@ -28,9 +28,9 @@ const Input: React.FC<IInputProps> = ({ message, leftIcon, rightIcon, ...props }
         {typeof props?.secureTextEntry === 'boolean' &&
           (
             <View style={[style.sideCol, style.setToRight]}>
-              <Ionicons
+              <Octicons
                 onPress={handleShowPassword}
-                name={visible ? 'eye' : 'eye-off'}
+                name={visible ? 'eye-closed' : 'eye'}
                 color={ColorNeutral.neutral60}
                 size={s(16)}
               />
@@ -44,7 +44,22 @@ const Input: React.FC<IInputProps> = ({ message, leftIcon, rightIcon, ...props }
         )}
       </View>
       {(typeof message === 'string' && message?.length > 0) && (
-        <Text style={style.message}>{message}</Text>
+        <View style={style.wrapperMessage}>
+          <View style={style.messageLeftCol}>
+            <MaterialIcons
+              name='info'
+              size={s(15)}
+              color={ColorError.error50}
+            />
+          </View>
+          <View style={style.messageRightCol}>
+            <Text
+              style={style.message}
+            >
+              {message}
+            </Text>
+          </View>
+        </View>
       )}
     </Fragment>
   )
