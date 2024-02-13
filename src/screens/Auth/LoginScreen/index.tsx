@@ -58,7 +58,7 @@ const LoginScreen: React.FC = () => {
                               />
                             }
                             message={errors?.email?.message ?? undefined}
-                            placeholder='Type your last name here...'
+                            placeholder='Type your email here...'
                             placeholderTextColor={ColorNeutral.neutral30}
                             onChangeText={onChange}
                             onBlur={onBlur}
