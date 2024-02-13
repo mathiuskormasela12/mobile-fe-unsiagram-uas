@@ -32,7 +32,7 @@ const Input: React.FC<IInputProps> = ({ message, leftIcon, rightIcon, ...props }
                 onPress={handleShowPassword}
                 name={visible ? 'eye' : 'eye-off'}
                 color={ColorNeutral.neutral60}
-                size={s(13)}
+                size={s(16)}
               />
             </View>
           )

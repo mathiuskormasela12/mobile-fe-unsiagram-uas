@@ -23,7 +23,7 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     marginTop: s(7),
     fontWeight: 'bold',
-    width: s(320),
+    width: s(300),
     lineHeight: s(32)
   },
   page: {

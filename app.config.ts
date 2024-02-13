@@ -12,7 +12,7 @@ const appConfig: ExpoConfig = {
   name: config[APP_VARIANT].EXPO_PUBLIC_APP_NAME,
   slug: 'mobile-fe-unsiagram',
   version: config[APP_VARIANT].EXPO_PUBLIC_APP_VERSION,
-  orientation: 'default',
+  orientation: 'portrait',
   icon: `./assets/${APP_VARIANT}/icon.png`,
   userInterfaceStyle: 'light',
   splash: {
