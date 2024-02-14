@@ -16,7 +16,7 @@ export const Layout = StyleSheet.create({
     alignItems: 'center'
   },
   container: {
-    width: '80%',
+    width: '85%',
     marginTop: 0,
     marginBottom: 0,
     marginLeft: 'auto',

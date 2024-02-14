@@ -24,6 +24,7 @@ const Input: React.FC<IInputProps> = ({ message, leftIcon, rightIcon, ...props }
           {...props}
           style={style.middleCol}
           secureTextEntry={visible}
+          autoCapitalize='none'
         />
         {typeof props?.secureTextEntry === 'boolean' &&
           (
