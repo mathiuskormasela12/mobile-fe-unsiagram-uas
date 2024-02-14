@@ -8,4 +8,5 @@ export type RegisterScreenHook = () => {
   handleSubmit: UseFormHandleSubmit<IRegisterForm>
   control: Control<IRegisterForm>
   handleRegister: SubmitHandler<IRegisterForm>
+  isPending: boolean
 }

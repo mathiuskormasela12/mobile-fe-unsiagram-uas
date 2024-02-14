@@ -5,16 +5,39 @@ import { type SubmitHandler, useForm } from 'react-hook-form'
 import { yupResolver } from '@hookform/resolvers/yup'
 import { registerSchema } from '@src/schemas'
 import { type IRegisterForm } from '@src/interfaces'
+import { useMutation } from '@tanstack/react-query'
+import { registerAccount } from '@src/api'
+import Toast from 'react-native-toast-message'
 
 export const useRegisterScreen: RegisterScreenHook = () => {
   const navigation = useNavigation<RootStackScreenProps<'RegisterScreen'>['navigation']>()
+  const { mutateAsync: handleRegisterAccount, isPending } = useMutation({
+    mutationFn: registerAccount,
+    onSuccess (data) {
+      reset({
+        firstName: '',
+        lastName: '',
+        email: '',
+        password: '',
+        repeatPassword: ''
+      })
+      Toast.show({
+        type: 'success',
+        text1: data?.message
+      })
+      setTimeout(() => {
+        navigation.navigate('LoginScreen')
+      }, 1000)
+    }
+  })
 
   const {
     handleSubmit,
     formState: {
       errors
     },
-    control
+    control,
+    reset
   } = useForm({
     resolver: yupResolver(registerSchema)
   })
@@ -23,8 +46,16 @@ export const useRegisterScreen: RegisterScreenHook = () => {
     navigation.navigate(screenName)
   }, [])
 
-  const handleRegister: SubmitHandler<IRegisterForm> = useCallback((data) => {
-    console.log(data)
+  const handleRegister: SubmitHandler<IRegisterForm> = useCallback(async (data) => {
+    try {
+      await handleRegisterAccount(data)
+    } catch (err) {
+      const { message } = err as Error
+      Toast.show({
+        type: 'error',
+        text1: message
+      })
+    }
   }, [])
 
   return {
@@ -32,6 +63,7 @@ export const useRegisterScreen: RegisterScreenHook = () => {
     handleRegister,
     control,
     handleSubmit,
-    errors
+    errors,
+    isPending
   }
 }

@@ -6,10 +6,13 @@ import { Ionicons, AntDesign, MaterialIcons, Entypo } from '@expo/vector-icons'
 import { ColorNeutral, ColorPrimary } from '@src/themes'
 import { Platform } from 'react-native'
 import { s } from '@src/helpers'
+import { useLoginRequired } from '@src/hooks'
 
 const Stack = createBottomTabNavigator<RootStackBottomTabParamList>()
 
 const BottomTabNavigation: React.FC = () => {
+  const loginRequired = useLoginRequired()
+
   return (
     <Stack.Navigator
       initialRouteName='PostsScreen'
@@ -44,6 +47,16 @@ const BottomTabNavigation: React.FC = () => {
           title: 'Search',
           tabBarIcon: ({ color }) => {
             return <AntDesign name='search1' color={color} size={s(26)} />
+          }
+        }}
+        listeners={({ navigation }) => {
+          return {
+            tabPress: (event) => {
+              event.preventDefault()
+              loginRequired(() => {
+                navigation.navigate('SearchAccountScreen')
+              })
+            }
           }
         }}
       />

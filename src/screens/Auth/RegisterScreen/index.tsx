@@ -14,7 +14,8 @@ const RegisterScreen: React.FC = () => {
     control,
     errors,
     handleSubmit,
-    handleRegister
+    handleRegister,
+    isPending
   } = useRegisterScreen()
 
   return (
@@ -47,7 +48,7 @@ const RegisterScreen: React.FC = () => {
                     <Controller
                       name='firstName'
                       control={control}
-                      render={({ field: { onBlur, onChange } }) => {
+                      render={({ field: { onBlur, onChange, value } }) => {
                         return (
                           <Input
                             leftIcon={
@@ -62,6 +63,7 @@ const RegisterScreen: React.FC = () => {
                             placeholderTextColor={ColorNeutral.neutral30}
                             onBlur={onBlur}
                             onChangeText={onChange}
+                            value={value}
                           />
                         )
                       }}
@@ -72,7 +74,7 @@ const RegisterScreen: React.FC = () => {
                     <Controller
                       control={control}
                       name='lastName'
-                      render={({ field: { onBlur, onChange } }) => {
+                      render={({ field: { onBlur, onChange, value } }) => {
                         return (
                           <Input
                             leftIcon={
@@ -87,6 +89,7 @@ const RegisterScreen: React.FC = () => {
                             placeholderTextColor={ColorNeutral.neutral30}
                             onChangeText={onChange}
                             onBlur={onBlur}
+                            value={value}
                           />
                         )
                       }}
@@ -97,7 +100,7 @@ const RegisterScreen: React.FC = () => {
                     <Controller
                       control={control}
                       name='email'
-                      render={({ field: { onBlur, onChange } }) => {
+                      render={({ field: { onBlur, onChange, value } }) => {
                         return (
                           <Input
                             leftIcon={
@@ -112,6 +115,7 @@ const RegisterScreen: React.FC = () => {
                             placeholderTextColor={ColorNeutral.neutral30}
                             onChangeText={onChange}
                             onBlur={onBlur}
+                            value={value}
                           />
                         )
                       }}
@@ -122,7 +126,7 @@ const RegisterScreen: React.FC = () => {
                     <Controller
                       control={control}
                       name='password'
-                      render={({ field: { onBlur, onChange } }) => {
+                      render={({ field: { onBlur, onChange, value } }) => {
                         return (
                           <Input
                             leftIcon={
@@ -138,6 +142,7 @@ const RegisterScreen: React.FC = () => {
                             message={errors?.password?.message ?? undefined}
                             placeholder='Type your Password here...'
                             placeholderTextColor={ColorNeutral.neutral30}
+                            value={value}
                           />
                         )
                       }}
@@ -148,7 +153,7 @@ const RegisterScreen: React.FC = () => {
                     <Controller
                       control={control}
                       name='repeatPassword'
-                      render={({ field: { onBlur, onChange } }) => {
+                      render={({ field: { onBlur, onChange, value } }) => {
                         return (
                           <Input
                             leftIcon={
@@ -164,6 +169,7 @@ const RegisterScreen: React.FC = () => {
                             placeholderTextColor={ColorNeutral.neutral30}
                             onChangeText={onChange}
                             onBlur={onBlur}
+                            value={value}
                           />
                         )
                       }}
@@ -174,6 +180,7 @@ const RegisterScreen: React.FC = () => {
                   </View>
                   <View style={styles.control}>
                     <Button
+                      isLoading={isPending}
                       variant='primary'
                       onPress={handleSubmit(handleRegister)}
                     >
