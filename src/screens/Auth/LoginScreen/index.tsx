@@ -47,7 +47,7 @@ const LoginScreen: React.FC = () => {
                     <Controller
                       control={control}
                       name='email'
-                      render={({ field: { onBlur, onChange } }) => {
+                      render={({ field: { onBlur, onChange, value } }) => {
                         return (
                           <Input
                             leftIcon={
@@ -62,6 +62,7 @@ const LoginScreen: React.FC = () => {
                             placeholderTextColor={ColorNeutral.neutral30}
                             onChangeText={onChange}
                             onBlur={onBlur}
+                            value={value}
                           />
                         )
                       }}
@@ -72,7 +73,7 @@ const LoginScreen: React.FC = () => {
                     <Controller
                       control={control}
                       name='password'
-                      render={({ field: { onBlur, onChange } }) => {
+                      render={({ field: { onBlur, onChange, value } }) => {
                         return (
                           <Input
                             leftIcon={
@@ -88,6 +89,7 @@ const LoginScreen: React.FC = () => {
                             message={errors?.password?.message ?? undefined}
                             placeholder='Type your Password here...'
                             placeholderTextColor={ColorNeutral.neutral30}
+                            value={value}
                           />
                         )
                       }}

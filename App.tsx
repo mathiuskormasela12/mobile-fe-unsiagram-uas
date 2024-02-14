@@ -4,7 +4,17 @@ import React, { useEffect } from 'react'
 import JailMonkey from 'jail-monkey'
 import { Alert, BackHandler } from 'react-native'
 import { SafeAreaProvider } from 'react-native-safe-area-context'
+import { QueryClientProvider, QueryClient } from '@tanstack/react-query'
+import Toast from 'react-native-toast-message'
 import { Layout } from '@src/themes'
+
+const queryClient = new QueryClient({
+  defaultOptions: {
+    queries: {
+      staleTime: 2000
+    }
+  }
+})
 
 export default function App (): React.ReactNode {
   const handleExitApp = (): void => {
@@ -25,9 +35,12 @@ export default function App (): React.ReactNode {
 
   return (
    <SafeAreaProvider style={Layout.fullPage}>
-    <ReduxWrapper>
-      <RootScreen />
-    </ReduxWrapper>
+    <QueryClientProvider client={queryClient}>
+      <ReduxWrapper>
+        <RootScreen />
+        <Toast position='top' />
+      </ReduxWrapper>
+    </QueryClientProvider>
    </SafeAreaProvider>
   )
 }

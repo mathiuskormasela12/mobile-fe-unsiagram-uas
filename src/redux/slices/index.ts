@@ -1,19 +1,17 @@
 import { combineReducers } from '@reduxjs/toolkit'
 import storage from '../storage'
-import counterSlice from './counterSlice'
+import authSlice from './authSlice'
 import { persistReducer } from 'redux-persist'
-import counterTempSlice from './counterTempSlice'
 
 const rootPersistConfig = {
   key: 'root',
   version: 1,
-  blacklist: ['counterTempReducer'],
+  blacklist: [],
   storage
 }
 
 const rootReducer = combineReducers({
-  counterReducer: counterSlice,
-  counterTempReducer: counterTempSlice
+  authReducer: authSlice
 })
 
 export default persistReducer(rootPersistConfig, rootReducer)
