@@ -5,6 +5,8 @@ import Label from './atoms/Label'
 import Button from './atoms/Button'
 import BackButton from './atoms/BackButton'
 import HeaderAuth from './molecules/HeaderAuth'
+import Header from './molecules/Header'
+import LatestPost from './molecules/LatestPost'
 
 export {
   ReduxWrapper,
@@ -13,5 +15,7 @@ export {
   Label,
   Button,
   HeaderAuth,
-  BackButton
+  BackButton,
+  Header,
+  LatestPost
 }
