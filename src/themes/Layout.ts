@@ -1,5 +1,6 @@
 import { StyleSheet } from 'react-native'
 import { ColorNeutral } from './Colors'
+import { Fonts } from './Fonts'
 
 export const Layout = StyleSheet.create({
   fullPage: {
@@ -42,5 +43,8 @@ export const Layout = StyleSheet.create({
     },
     shadowOpacity: 0.1,
     shadowRadius: 0.8
+  },
+  textSemiBold: {
+    fontFamily: Fonts.semiBold
   }
 })

@@ -1,12 +1,75 @@
-import { Header, LatestPost, SafeAreaView } from '@src/components'
-import React from 'react'
-import { Text, View } from 'react-native'
+import { Header, LatestPost, PostCard, SafeAreaView } from '@src/components'
+import React, { useCallback } from 'react'
+import { FlatList, type ListRenderItemInfo, View } from 'react-native'
 import styles from './styles'
 import usePostsScreen from '@src/hooks/usePostsScreen'
-import { Layout } from '@src/themes'
+
+import { type IGetPostResponse } from '@src/interfaces'
+
+const posts: IGetPostResponse[] = [
+  {
+    id: '1',
+    user: {
+      id: '1',
+      firstName: 'Gaeul',
+      lastName: '',
+      photo: 'https://a-static.besthdwallpaper.com/gaeul-from-ive-kpop-girls-group-wallpaper-2880x1800-99911_8.jpg',
+      email: 'gaeul@gmail.com'
+    },
+    photos: ['https://wallpapercave.com/wp/wp11279742.jpg', 'https://rare-gallery.com/mocahbig/1374623-ive-kpop-love-dive-gaeul-4k-pc-wallpaper.jpg'],
+    likes: 200,
+    caption: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum cum in magnam maxime? Perferendis natus, inventore rerum vero culpa molestias tempora at, consectetur voluptatem dolore dolor nulla in ullam sequi. Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum cum in magnam maxime? Perferendis natus, inventore rerum vero culpa molestias tempora at, consectetur voluptatem dolore dolor nulla in ullam sequi. Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum cum in magnam maxime? Perferendis natus, inventore rerum vero culpa molestias tempora at, consectetur voluptatem dolore dolor nulla in ullam sequi.',
+    comments: [
+      {
+        id: '1',
+        userId: '1',
+        postId: '1',
+        comment: 'good',
+        createdAt: '2024-02-02'
+      }
+    ],
+    createdAt: '2024-01-01'
+  },
+  {
+    id: '2',
+    user: {
+      id: '2',
+      firstName: 'Wonyoung',
+      lastName: '',
+      photo: 'https://static.promediateknologi.id/crop/0x0:0x0/750x500/webp/photo/2023/04/12/Jang-Wonyoung-1-2705046685.jpg',
+      email: 'wonyoung@gmail.com'
+    },
+    photos: ['https://thumb.viva.co.id/media/frontend/thumbs3/2022/09/06/6316869926333-jang-wonyoung-ive_1265_711.jpg'],
+    likes: 200,
+    caption: 'Hi there 2',
+    comments: [
+      {
+        id: '2',
+        userId: '2',
+        postId: '2',
+        comment: 'good job',
+        createdAt: '2024-02-02'
+      }
+    ],
+    createdAt: '2024-01-01'
+  }
+]
 
 const PostsScreen: React.FC = () => {
   const { handleMessengerPress } = usePostsScreen()
+
+  const handleRenderItem = useCallback((item: ListRenderItemInfo<IGetPostResponse>) => {
+    return (
+      <PostCard
+        id={item.item.id}
+        user={item.item.user}
+        likes={item.item.likes}
+        caption={item.item.caption}
+        comments={item.item.comments}
+        photos={item.item.photos}
+      />
+    )
+  }, [])
 
   return (
     <SafeAreaView style={styles.page}>
@@ -16,9 +79,12 @@ const PostsScreen: React.FC = () => {
       />
       <LatestPost />
       <View style={styles.main}>
-        <View style={Layout.container}>
-          <Text style={styles.title}>Hello PostsScreen</Text>
-        </View>
+        <FlatList
+          data={posts}
+          renderItem={handleRenderItem}
+          keyExtractor={(item) => item.id}
+        />
+
       </View>
     </SafeAreaView>
   )

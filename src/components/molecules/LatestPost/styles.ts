@@ -36,7 +36,7 @@ const styles = StyleSheet.create({
     ...Layout.flexCenter
   },
   latestPost: {
-    backgroundColor: ColorNeutral.neutral10,
+    backgroundColor: ColorNeutral.neutral0,
     width: '100%'
   },
   flatList: {

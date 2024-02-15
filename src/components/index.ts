@@ -7,6 +7,7 @@ import BackButton from './atoms/BackButton'
 import HeaderAuth from './molecules/HeaderAuth'
 import Header from './molecules/Header'
 import LatestPost from './molecules/LatestPost'
+import PostCard from './molecules/PostCard'
 
 export {
   ReduxWrapper,
@@ -17,5 +18,6 @@ export {
   HeaderAuth,
   BackButton,
   Header,
-  LatestPost
+  LatestPost,
+  PostCard
 }
