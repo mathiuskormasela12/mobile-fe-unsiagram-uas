@@ -13,7 +13,7 @@ const BackButton: React.FC<ISquareButtonProps> = ({ onPress }) => {
         <Ionicons
           name='arrow-back'
           color={ColorNeutral.neutral60}
-          size={s(18)}
+          size={s(20)}
         />
       </Pressable>
     </View>

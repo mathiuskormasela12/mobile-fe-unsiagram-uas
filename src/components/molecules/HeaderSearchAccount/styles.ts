@@ -1,28 +1,26 @@
 import { s } from '@src/helpers'
-import { ColorNeutral, ColorPrimary, Fonts, Layout } from '@src/themes'
+import { ColorNeutral, Layout } from '@src/themes'
 import { StyleSheet } from 'react-native'
 
 const styles = StyleSheet.create({
   header: {
     width: '100%',
-    height: s(60),
+    height: s(80),
     backgroundColor: ColorNeutral.neutral0,
     flexDirection: 'row',
     alignItems: 'center',
     zIndex: 1,
     elevation: 4
   },
-  col: {
-    flex: 1
+  leftCol: {
+    marginRight: s(8)
   },
-  textButton: {
-    color: ColorPrimary.primary50,
-    fontFamily: Fonts.semiBold,
-    fontSize: s(16)
+  rightCol: {
+    flex: 1
   },
   container: {
     ...Layout.container,
-    width: '90%'
+    width: '93%'
   }
 })
 
