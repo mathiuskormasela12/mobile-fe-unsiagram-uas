@@ -34,13 +34,13 @@ export default function App (): React.ReactNode {
   }, [])
 
   return (
-   <SafeAreaProvider style={Layout.fullPage}>
-    <QueryClientProvider client={queryClient}>
-      <ReduxWrapper>
-        <RootScreen />
-        <Toast position='top' />
-      </ReduxWrapper>
-    </QueryClientProvider>
-   </SafeAreaProvider>
+    <SafeAreaProvider style={Layout.fullPage}>
+      <QueryClientProvider client={queryClient}>
+        <ReduxWrapper>
+          <RootScreen />
+          <Toast position='top' />
+        </ReduxWrapper>
+      </QueryClientProvider>
+    </SafeAreaProvider>
   )
 }

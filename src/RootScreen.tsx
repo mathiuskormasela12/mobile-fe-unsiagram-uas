@@ -4,6 +4,7 @@ import { ColorNeutral, Layout } from '@src/themes'
 import RootNavigation from '@src/navigations/RootNavigation'
 import { useRootScreen } from './hooks'
 import { View } from 'react-native'
+import { GestureHandlerRootView } from 'react-native-gesture-handler'
 
 const RootScreen: React.FC = () => {
   const { onLayoutRootView, isAppReady } = useRootScreen()
@@ -15,9 +16,11 @@ const RootScreen: React.FC = () => {
   return (
    <Fragment>
     <StatusBar style='dark' backgroundColor={ColorNeutral.neutral0} />
-    <View onLayout={onLayoutRootView} style={Layout.fullPage}>
-      <RootNavigation />
-    </View>
+      <GestureHandlerRootView style={Layout.fullPage}>
+        <View onLayout={onLayoutRootView} style={Layout.fullPage}>
+          <RootNavigation />
+        </View>
+      </GestureHandlerRootView>
    </Fragment>
   )
 }

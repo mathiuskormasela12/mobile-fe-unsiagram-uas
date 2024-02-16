@@ -1,5 +1,3 @@
-import { type IComment } from './IComment'
-
 export interface IPostCardProps {
   id: string
   user: {
@@ -10,5 +8,5 @@ export interface IPostCardProps {
   caption: string
   likes: number
   isLiked: boolean
-  comments: IComment[]
+  onOpenCommentModal: () => void
 }

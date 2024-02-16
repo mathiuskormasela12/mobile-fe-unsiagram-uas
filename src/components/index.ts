@@ -8,6 +8,11 @@ import HeaderAuth from './molecules/HeaderAuth'
 import Header from './molecules/Header'
 import LatestPost from './molecules/LatestPost'
 import PostCard from './molecules/PostCard'
+import CommentModal from './organisms/CommentModal'
+import BottomSheetHeader from './molecules/BottomSheetHeader'
+import CloseButton from './atoms/CloseButton'
+import CustomBackdrop from './atoms/CustomBackdrop'
+import PhotoProfile from './molecules/PhotoProfile'
 
 export {
   ReduxWrapper,
@@ -19,5 +24,10 @@ export {
   BackButton,
   Header,
   LatestPost,
-  PostCard
+  PostCard,
+  CommentModal,
+  BottomSheetHeader,
+  CloseButton,
+  CustomBackdrop,
+  PhotoProfile
 }

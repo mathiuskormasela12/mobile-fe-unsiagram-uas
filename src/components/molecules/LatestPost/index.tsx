@@ -1,10 +1,11 @@
 import React, { useCallback } from 'react'
-import { View, FlatList, Image, type ListRenderItemInfo, Text, type ViewStyle } from 'react-native'
+import { View, FlatList, type ListRenderItemInfo, Text, type ViewStyle } from 'react-native'
 import { AntDesign } from '@expo/vector-icons'
 import styles from './styles'
 import { ColorNeutral } from '@src/themes'
 import { s } from '@src/helpers'
 import { type ILatestPost } from '@src/interfaces'
+import PhotoProfile from '../PhotoProfile'
 
 const posts: ILatestPost[] = [
   {
@@ -58,12 +59,7 @@ const LatestPost: React.FC = () => {
     return (
       <View style={[styles.imgCircleWrapper, additionalStyle]}>
         <View style={styles.imgCircle}>
-          <View style={styles.imgCircleContainer}>
-            <Image
-              source={require('../../../../assets/img/person.png')}
-              style={styles.img}
-            />
-          </View>
+          <PhotoProfile uri='' />
           {(item.id === '1') && (
             <View style={styles.imgWrapperIcon}>
               <View style={styles.imgWrapperIconContainer}>

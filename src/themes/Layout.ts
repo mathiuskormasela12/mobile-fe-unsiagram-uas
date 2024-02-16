@@ -46,5 +46,14 @@ export const Layout = StyleSheet.create({
   },
   textSemiBold: {
     fontFamily: Fonts.semiBold
+  },
+  alignEnd: {
+    alignItems: 'flex-end'
+  },
+  alignStart: {
+    alignItems: 'flex-start'
+  },
+  alignCenter: {
+    alignItems: 'center'
   }
 })

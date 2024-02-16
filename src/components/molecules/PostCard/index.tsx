@@ -76,7 +76,7 @@ const PostCard: React.FC<IPostCardProps> = (props) => {
             <Text style={styles.cardFooterTextSmall}>{props.likes}</Text>
           </View>
           <View style={styles.cardFooterIcon}>
-            <Pressable>
+            <Pressable onPress={props.onOpenCommentModal}>
               <Feather
                 name='message-circle'
                 color={ColorNeutral.neutral30}

@@ -5,4 +5,5 @@ export interface IInputProps extends TextInputProps {
   message?: string
   leftIcon?: React.ReactNode
   rightIcon?: React.ReactNode
+  isBottomSheet?: boolean
 }

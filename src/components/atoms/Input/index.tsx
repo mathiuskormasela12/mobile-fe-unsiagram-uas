@@ -5,12 +5,15 @@ import { Octicons, MaterialIcons } from '@expo/vector-icons'
 import style from './styles'
 import { ColorError, ColorNeutral } from '@src/themes'
 import { s } from '@src/helpers'
+import { BottomSheetTextInput } from '@gorhom/bottom-sheet'
 
-const Input: React.FC<IInputProps> = ({ message, leftIcon, rightIcon, ...props }) => {
+const Input: React.FC<IInputProps> = ({ isBottomSheet, message, leftIcon, rightIcon, ...props }) => {
   const [visible, setVisible] = useState<boolean>(props?.secureTextEntry ?? false)
   const handleShowPassword = useCallback((): void => {
     setVisible((currentVisible) => !currentVisible)
   }, [])
+
+  const TextField = isBottomSheet ? BottomSheetTextInput : TextInput
 
   return (
     <Fragment>
@@ -20,7 +23,7 @@ const Input: React.FC<IInputProps> = ({ message, leftIcon, rightIcon, ...props }
             {leftIcon}
           </View>
         )}
-        <TextInput
+        <TextField
           {...props}
           style={style.middleCol}
           secureTextEntry={visible}
