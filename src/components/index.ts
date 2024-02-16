@@ -13,6 +13,8 @@ import BottomSheetHeader from './molecules/BottomSheetHeader'
 import CloseButton from './atoms/CloseButton'
 import CustomBackdrop from './atoms/CustomBackdrop'
 import PhotoProfile from './molecules/PhotoProfile'
+import HeaderSearchAccount from './molecules/HeaderSearchAccount'
+import Card from './atoms/Card'
 
 export {
   ReduxWrapper,
@@ -29,5 +31,7 @@ export {
   BottomSheetHeader,
   CloseButton,
   CustomBackdrop,
-  PhotoProfile
+  PhotoProfile,
+  HeaderSearchAccount,
+  Card
 }

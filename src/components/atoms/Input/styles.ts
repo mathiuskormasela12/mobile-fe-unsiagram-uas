@@ -48,7 +48,7 @@ const style = StyleSheet.create({
     borderRadius: s(10)
   },
   sm: {
-    height: Platform.select({ ios: s(50), android: s(50) }),
+    height: Platform.select({ ios: s(45), android: s(45) }),
     fontSize: s(15),
     borderRadius: s(10)
   }

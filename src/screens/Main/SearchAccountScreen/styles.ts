@@ -10,7 +10,21 @@ const styles = StyleSheet.create({
   },
   page: {
     flex: 1,
-    backgroundColor: ColorNeutral.neutral0
+    backgroundColor: ColorNeutral.neutral0,
+    width: '100%'
+  },
+  flatList: {
+    width: '100%'
+  },
+  main: {
+    width: '100%'
+  },
+  emptyStateTitle: {
+    fontFamily: Fonts.base,
+    fontSize: s(16),
+    textAlign: 'center',
+    color: ColorNeutral.neutral80,
+    marginTop: s(15)
   }
 })
 
