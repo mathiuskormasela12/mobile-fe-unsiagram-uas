@@ -11,6 +11,11 @@ const styles = StyleSheet.create({
   page: {
     flex: 1,
     backgroundColor: ColorNeutral.neutral0
+  },
+  main: {
+    flex: 1,
+    width: '100%',
+    backgroundColor: ColorNeutral.neutral0
   }
 })
 
