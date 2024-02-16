@@ -96,6 +96,32 @@ const RegisterScreen: React.FC = () => {
                     />
                   </View>
                   <View style={styles.control}>
+                    <Label>Username</Label>
+                    <Controller
+                      control={control}
+                      name='username'
+                      render={({ field: { onBlur, onChange, value } }) => {
+                        return (
+                          <Input
+                            leftIcon={
+                              <Octicons
+                                name='person'
+                                color={ColorNeutral.neutral50}
+                                size={s(16)}
+                              />
+                            }
+                            message={errors?.username?.message ?? undefined}
+                            placeholder='Type your username here...'
+                            placeholderTextColor={ColorNeutral.neutral30}
+                            onChangeText={onChange}
+                            onBlur={onBlur}
+                            value={value}
+                          />
+                        )
+                      }}
+                    />
+                  </View>
+                  <View style={styles.control}>
                     <Label>Email</Label>
                     <Controller
                       control={control}
@@ -111,7 +137,7 @@ const RegisterScreen: React.FC = () => {
                               />
                             }
                             message={errors?.email?.message ?? undefined}
-                            placeholder='Type your last name here...'
+                            placeholder='Type your email here...'
                             placeholderTextColor={ColorNeutral.neutral30}
                             onChangeText={onChange}
                             onBlur={onBlur}
