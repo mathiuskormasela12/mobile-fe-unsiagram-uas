@@ -6,18 +6,18 @@ import { s } from '@src/helpers'
 import styles from './styles'
 import { type ISquareButtonProps } from '@src/interfaces'
 
-const BackButton: React.FC<ISquareButtonProps> = ({ onPress }) => {
+const CloseButton: React.FC<ISquareButtonProps> = ({ onPress }) => {
   return (
-    <View style={styles.button}>
-      <Pressable onPress={onPress}>
+    <Pressable onPress={onPress}>
+      <View style={styles.button}>
         <Ionicons
-          name='arrow-back'
+          name='close'
           color={ColorNeutral.neutral60}
           size={s(18)}
         />
-      </Pressable>
-    </View>
+      </View>
+    </Pressable>
   )
 }
 
-export default BackButton
+export default CloseButton

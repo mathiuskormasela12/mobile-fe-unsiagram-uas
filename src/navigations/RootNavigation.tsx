@@ -1,6 +1,6 @@
 import { NavigationContainer } from '@react-navigation/native'
 import { createNativeStackNavigator } from '@react-navigation/native-stack'
-import { ForgotPasswordScreen, LoginScreen, RegisterScreen, ResetPasswordScreen } from '@src/screens'
+import { ChatListScreen, ChatRoomScreen, ForgotPasswordScreen, LoginScreen, RegisterScreen, ResetPasswordScreen } from '@src/screens'
 import { type RootStackParamList } from '@src/types'
 import React from 'react'
 import BottomTabNavigation from './BottomTabNavigation'
@@ -35,6 +35,14 @@ const RootNavigation: React.FC = () => {
         <Stack.Screen
           name='MainScreen'
           component={BottomTabNavigation}
+        />
+        <Stack.Screen
+          name='ChatListScreen'
+          component={ChatListScreen}
+        />
+         <Stack.Screen
+          name='ChatRoomScreen'
+          component={ChatRoomScreen}
         />
       </Stack.Navigator>
     </NavigationContainer>

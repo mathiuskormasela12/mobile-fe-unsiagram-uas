@@ -1,30 +1,50 @@
 import { type IInputProps } from '@src/interfaces'
 import React, { Fragment, useCallback, useState } from 'react'
-import { Text, TextInput, View } from 'react-native'
+import { Text, TextInput, View, type ViewStyle } from 'react-native'
 import { Octicons, MaterialIcons } from '@expo/vector-icons'
 import style from './styles'
 import { ColorError, ColorNeutral } from '@src/themes'
 import { s } from '@src/helpers'
+import { BottomSheetTextInput } from '@gorhom/bottom-sheet'
 
-const Input: React.FC<IInputProps> = ({ message, leftIcon, rightIcon, ...props }) => {
+const Input: React.FC<IInputProps> = ({
+  isBottomSheet,
+  message,
+  leftIcon,
+  rightIcon,
+  size = 'md',
+  ...props
+}) => {
   const [visible, setVisible] = useState<boolean>(props?.secureTextEntry ?? false)
   const handleShowPassword = useCallback((): void => {
     setVisible((currentVisible) => !currentVisible)
   }, [])
+  const inputStyles: ViewStyle[] = [style.input]
+
+  switch (size) {
+    case 'sm':
+      inputStyles.push(style.sm)
+      break
+    default :
+      inputStyles.push(style.md)
+  }
+
+  const TextField = isBottomSheet ? BottomSheetTextInput : TextInput
 
   return (
     <Fragment>
-      <View style={style.input}>
+      <View style={inputStyles}>
         {leftIcon !== undefined && (
           <View style={style.sideCol}>
             {leftIcon}
           </View>
         )}
-        <TextInput
+        <TextField
           {...props}
           style={style.middleCol}
           secureTextEntry={visible}
           autoCapitalize='none'
+          ref={(props.ref ? props.ref : props.innerRef) as any}
         />
         {typeof props?.secureTextEntry === 'boolean' &&
           (

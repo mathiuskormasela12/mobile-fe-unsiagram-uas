@@ -5,6 +5,14 @@ import Label from './atoms/Label'
 import Button from './atoms/Button'
 import BackButton from './atoms/BackButton'
 import HeaderAuth from './molecules/HeaderAuth'
+import Header from './molecules/Header'
+import LatestPost from './molecules/LatestPost'
+import PostCard from './molecules/PostCard'
+import CommentModal from './organisms/CommentModal'
+import BottomSheetHeader from './molecules/BottomSheetHeader'
+import CloseButton from './atoms/CloseButton'
+import CustomBackdrop from './atoms/CustomBackdrop'
+import PhotoProfile from './molecules/PhotoProfile'
 
 export {
   ReduxWrapper,
@@ -13,5 +21,13 @@ export {
   Label,
   Button,
   HeaderAuth,
-  BackButton
+  BackButton,
+  Header,
+  LatestPost,
+  PostCard,
+  CommentModal,
+  BottomSheetHeader,
+  CloseButton,
+  CustomBackdrop,
+  PhotoProfile
 }
