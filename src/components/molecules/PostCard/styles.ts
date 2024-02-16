@@ -59,6 +59,12 @@ const styles = StyleSheet.create({
     fontFamily: Fonts.base,
     lineHeight: s(22)
   },
+  cardFooterTextSmall: {
+    fontSize: s(14),
+    color: ColorNeutral.neutral80,
+    fontFamily: Fonts.base,
+    lineHeight: s(22)
+  },
   cardFooterCaption: {
     marginTop: s(10)
   },
@@ -66,7 +72,6 @@ const styles = StyleSheet.create({
     fontSize: s(15),
     color: ColorNeutral.neutral90,
     fontFamily: Fonts.semiBold,
-    textAlign: 'justify',
     lineHeight: s(22)
   }
 })

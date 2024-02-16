@@ -37,7 +37,10 @@ const styles = StyleSheet.create({
   },
   latestPost: {
     backgroundColor: ColorNeutral.neutral0,
-    width: '100%'
+    width: '100%',
+    borderBottomColor: ColorNeutral.neutral30,
+    borderBottomWidth: s(0.5),
+    borderStyle: 'solid'
   },
   flatList: {
     flexDirection: 'row',

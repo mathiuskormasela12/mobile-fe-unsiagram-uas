@@ -8,6 +8,11 @@ import styles from './styles'
 
 const PostCard: React.FC<IPostCardProps> = (props) => {
   const [isShowFullCaption, setIsShowFullCaption] = useState(false)
+  const [isLiked, setIsLiked] = useState<boolean>(false)
+
+  const handleLike = useCallback(() => {
+    setIsLiked((liked) => !liked)
+  }, [])
 
   useEffect(() => {
     if (props?.caption?.length > 100) {
@@ -15,7 +20,9 @@ const PostCard: React.FC<IPostCardProps> = (props) => {
     } else {
       setIsShowFullCaption(() => true)
     }
-  }, [props?.caption])
+
+    setIsLiked(() => props.isLiked)
+  }, [props?.caption, props.isLiked])
 
   const handleShowFullCaption = useCallback(() => {
     setIsShowFullCaption((current) => !current)
@@ -49,14 +56,24 @@ const PostCard: React.FC<IPostCardProps> = (props) => {
       <View style={styles.cardFooter}>
         <View style={styles.cardFooterIcons}>
           <View style={styles.cardFooterIcon}>
-            <Pressable>
-              <AntDesign
-                name='heart'
-                color={ColorError.error60}
-                size={s(26)}
-              />
+            <Pressable onPress={handleLike}>
+              {isLiked
+                ? (
+                <AntDesign
+                  name='heart'
+                  color={ColorError.error60}
+                  size={s(26)}
+                />
+                  )
+                : (
+                <AntDesign
+                  name='hearto'
+                  color={ColorNeutral.neutral30}
+                  size={s(26)}
+                />
+                  )}
             </Pressable>
-            <Text style={styles.cardFooterText}>{props.likes}</Text>
+            <Text style={styles.cardFooterTextSmall}>{props.likes}</Text>
           </View>
           <View style={styles.cardFooterIcon}>
             <Pressable>
@@ -66,7 +83,7 @@ const PostCard: React.FC<IPostCardProps> = (props) => {
                 size={s(26)}
               />
             </Pressable>
-            <Text style={styles.cardFooterText}>1M</Text>
+            <Text style={styles.cardFooterTextSmall}>1M</Text>
           </View>
         </View>
         <View style={styles.cardFooterCaption}>

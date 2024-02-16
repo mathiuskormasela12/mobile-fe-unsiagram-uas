@@ -9,5 +9,6 @@ export interface IPostCardProps {
   photos: string[]
   caption: string
   likes: number
+  isLiked: boolean
   comments: IComment[]
 }

@@ -28,6 +28,7 @@ const posts: IGetPostResponse[] = [
         createdAt: '2024-02-02'
       }
     ],
+    isLiked: true,
     createdAt: '2024-01-01'
   },
   {
@@ -51,7 +52,8 @@ const posts: IGetPostResponse[] = [
         createdAt: '2024-02-02'
       }
     ],
-    createdAt: '2024-01-01'
+    createdAt: '2024-01-01',
+    isLiked: false
   }
 ]
 
@@ -61,6 +63,7 @@ const PostsScreen: React.FC = () => {
   const handleRenderItem = useCallback((item: ListRenderItemInfo<IGetPostResponse>) => {
     return (
       <PostCard
+        isLiked={item.item.isLiked}
         id={item.item.id}
         user={item.item.user}
         likes={item.item.likes}
@@ -77,12 +80,13 @@ const PostsScreen: React.FC = () => {
         title='Unsiagram'
         onPressRightIcon={handleMessengerPress}
       />
-      <LatestPost />
       <View style={styles.main}>
         <FlatList
           data={posts}
           renderItem={handleRenderItem}
           keyExtractor={(item) => item.id}
+          showsVerticalScrollIndicator={false}
+          ListHeaderComponent={<LatestPost />}
         />
       </View>
     </SafeAreaView>

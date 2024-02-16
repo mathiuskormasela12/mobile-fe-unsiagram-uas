@@ -9,4 +9,5 @@ export interface IGetPostResponse {
   createdAt: string
   comments: IComment[]
   user: IUser
+  isLiked: boolean
 }
