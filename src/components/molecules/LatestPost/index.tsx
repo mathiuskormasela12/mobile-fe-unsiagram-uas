@@ -1,8 +1,8 @@
 import React, { useCallback } from 'react'
-import { View, FlatList, Image, type ListRenderItemInfo, Text } from 'react-native'
+import { View, FlatList, Image, type ListRenderItemInfo, Text, type ViewStyle } from 'react-native'
 import { AntDesign } from '@expo/vector-icons'
 import styles from './styles'
-import { ColorNeutral, Layout } from '@src/themes'
+import { ColorNeutral } from '@src/themes'
 import { s } from '@src/helpers'
 import { type ILatestPost } from '@src/interfaces'
 
@@ -45,9 +45,18 @@ const posts: ILatestPost[] = [
 ]
 
 const LatestPost: React.FC = () => {
-  const handleRenderItem = useCallback(({ item }: ListRenderItemInfo<ILatestPost>) => {
+  const handleRenderItem = useCallback(({ item, index }: ListRenderItemInfo<ILatestPost>) => {
+    const additionalStyle: ViewStyle[] = []
+
+    if (index === 0) {
+      additionalStyle.push(styles.flatListItemFirst)
+    }
+    if (index === (posts.length - 1)) {
+      additionalStyle.push(styles.flatListItemLast)
+    }
+
     return (
-      <View style={styles.imgCircleWrapper}>
+      <View style={[styles.imgCircleWrapper, additionalStyle]}>
         <View style={styles.imgCircle}>
           <View style={styles.imgCircleContainer}>
             <Image
@@ -74,16 +83,14 @@ const LatestPost: React.FC = () => {
 
   return (
     <View style={styles.latestPost}>
-      <View style={Layout.container}>
-        <FlatList
-          horizontal
-          showsHorizontalScrollIndicator={false}
-          data={posts}
-          keyExtractor={(item) => item.id}
-          renderItem={handleRenderItem}
-          contentContainerStyle={styles.flatList}
-        />
-      </View>
+      <FlatList
+        horizontal
+        showsHorizontalScrollIndicator={false}
+        data={posts}
+        keyExtractor={(item) => item.id}
+        renderItem={handleRenderItem}
+        contentContainerStyle={styles.flatList}
+      />
     </View>
   )
 }

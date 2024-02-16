@@ -41,7 +41,7 @@ const styles = StyleSheet.create({
   },
   flatList: {
     flexDirection: 'row',
-    gap: s(5),
+    gap: s(10),
     justifyContent: 'space-between',
     paddingBottom: s(15)
   },
@@ -51,6 +51,12 @@ const styles = StyleSheet.create({
     fontSize: s(13),
     textAlign: 'center',
     textTransform: 'capitalize'
+  },
+  flatListItemFirst: {
+    paddingLeft: s(7)
+  },
+  flatListItemLast: {
+    paddingRight: s(7)
   }
 })
 

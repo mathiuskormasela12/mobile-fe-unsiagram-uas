@@ -84,7 +84,6 @@ const PostsScreen: React.FC = () => {
           renderItem={handleRenderItem}
           keyExtractor={(item) => item.id}
         />
-
       </View>
     </SafeAreaView>
   )

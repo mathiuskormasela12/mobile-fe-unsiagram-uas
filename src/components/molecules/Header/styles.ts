@@ -27,8 +27,10 @@ const styles = StyleSheet.create({
     height: s(50)
   },
   row: {
+    width: '100%',
     flexDirection: 'row',
-    justifyContent: 'space-between'
+    justifyContent: 'space-between',
+    paddingHorizontal: s(10)
   },
   col: {
     justifyContent: 'center'

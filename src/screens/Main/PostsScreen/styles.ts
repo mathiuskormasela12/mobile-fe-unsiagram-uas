@@ -15,7 +15,9 @@ const styles = StyleSheet.create({
   main: {
     flex: 1,
     width: '100%',
-    backgroundColor: ColorNeutral.neutral10
+    backgroundColor: ColorNeutral.neutral0,
+    borderTopColor: ColorNeutral.neutral30,
+    borderTopWidth: s(0.5)
   }
 })
 

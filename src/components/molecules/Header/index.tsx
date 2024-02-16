@@ -1,6 +1,6 @@
 import React from 'react'
 import { Pressable, Text, View, Image } from 'react-native'
-import { ColorNeutral, Layout } from '@src/themes'
+import { ColorNeutral } from '@src/themes'
 import { FontAwesome6 } from '@expo/vector-icons'
 import { s } from '@src/helpers'
 import styles from './styles'
@@ -9,7 +9,7 @@ import { type IHeaderProps } from '@src/interfaces'
 const Header: React.FC<IHeaderProps> = ({ title, onPressRightIcon, rightIcon }) => {
   return (
     <View style={styles.header}>
-     <View style={[Layout.container, styles.row]}>
+     <View style={styles.row}>
       <View style={styles.col}>
         <View style={styles.imgBrand}>
           <Image

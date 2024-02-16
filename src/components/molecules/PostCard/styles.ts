@@ -12,7 +12,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     gap: s(5),
-    paddingVertical: s(17),
+    paddingVertical: s(12),
     paddingHorizontal: s(15)
   },
   cardHeaderImg: {
