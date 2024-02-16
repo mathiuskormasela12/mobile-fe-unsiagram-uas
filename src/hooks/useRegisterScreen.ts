@@ -17,6 +17,7 @@ export const useRegisterScreen: RegisterScreenHook = () => {
       reset({
         firstName: '',
         lastName: '',
+        username: '',
         email: '',
         password: '',
         repeatPassword: ''
