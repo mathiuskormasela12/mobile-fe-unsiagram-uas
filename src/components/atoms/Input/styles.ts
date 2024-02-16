@@ -6,11 +6,8 @@ const style = StyleSheet.create({
   input: {
     width: '100%',
     backgroundColor: ColorNeutral.neutral0,
-    borderRadius: s(10),
-    height: Platform.select({ ios: s(54), android: s(52) }),
     paddingHorizontal: s(15),
     fontFamily: Fonts.base,
-    fontSize: s(15),
     flexDirection: 'row',
     alignItems: 'center',
     borderColor: ColorNeutral.neutral30,
@@ -44,6 +41,16 @@ const style = StyleSheet.create({
   },
   setToRight: {
     alignItems: 'flex-end'
+  },
+  md: {
+    height: Platform.select({ ios: s(54), android: s(52) }),
+    fontSize: s(15),
+    borderRadius: s(10)
+  },
+  sm: {
+    height: Platform.select({ ios: s(50), android: s(50) }),
+    fontSize: s(15),
+    borderRadius: s(10)
   }
 })
 

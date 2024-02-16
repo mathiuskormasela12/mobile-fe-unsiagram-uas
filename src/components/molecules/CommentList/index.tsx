@@ -4,7 +4,7 @@ import { Pressable, Text, View } from 'react-native'
 import styles from './styles'
 import PhotoProfile from '../PhotoProfile'
 import { Ionicons } from '@expo/vector-icons'
-import { s } from '@src/helpers'
+import { inputRef, s } from '@src/helpers'
 import { ColorError, Layout } from '@src/themes'
 
 const CommentList: React.FC<ICommentListProps> = ({ comment, photo, isLiked: defaultIsLiked, username }) => {
@@ -12,6 +12,10 @@ const CommentList: React.FC<ICommentListProps> = ({ comment, photo, isLiked: def
 
   const handleLike = useCallback((): void => {
     setIsLiked((like) => !like)
+  }, [])
+
+  const handleComment = useCallback((): void => {
+    inputRef.current?.focus()
   }, [])
 
   useEffect(() => {
@@ -31,7 +35,7 @@ const CommentList: React.FC<ICommentListProps> = ({ comment, photo, isLiked: def
           {comment}
         </Text>
         <View style={[Layout.flexRow, Layout.alignCenter, styles.iconContainer]}>
-          <Pressable style={[Layout.flexRow, styles.textContainer]}>
+          <Pressable onPress={handleComment} style={[Layout.flexRow, styles.textContainer]}>
             <Ionicons
               name='chatbubbles-outline'
               size={s(20)}

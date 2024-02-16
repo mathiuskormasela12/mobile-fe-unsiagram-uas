@@ -3,12 +3,12 @@ import CustomBackdrop from '@src/components/atoms/CustomBackdrop'
 import BottomSheetHeader from '@src/components/molecules/BottomSheetHeader'
 import CommentList from '@src/components/molecules/CommentList'
 import { type IComment, type ICommentModalRef } from '@src/interfaces'
-import React, { useCallback, useImperativeHandle, useMemo, useRef } from 'react'
-import { type ListRenderItemInfo, View } from 'react-native'
+import React, { useCallback, useEffect, useImperativeHandle, useMemo, useRef, useState } from 'react'
+import { type ListRenderItemInfo, View, Platform, Keyboard, Alert } from 'react-native'
 import styles from './styles'
 import Input from '@src/components/atoms/Input'
 import { Ionicons } from '@expo/vector-icons'
-import { s } from '@src/helpers'
+import { inputRef, s } from '@src/helpers'
 import { ColorPrimary, Layout } from '@src/themes'
 
 const comments: IComment[] = [
@@ -80,7 +80,8 @@ const comments: IComment[] = [
 
 const CommentModal = (_props: unknown, ref: React.Ref<ICommentModalRef>): React.ReactNode => {
   const bottomSheetRef = useRef<BottomSheetModal>(null)
-  const snapPoints = useMemo(() => ['30%', '80%'], [])
+  const snapPoints = useMemo(() => ['75%', '75%'], [])
+  const [comment, setComment] = useState<string>('')
 
   const handleClose = useCallback(() => {
     bottomSheetRef?.current?.close()
@@ -90,10 +91,24 @@ const CommentModal = (_props: unknown, ref: React.Ref<ICommentModalRef>): React.
     bottomSheetRef?.current?.present(0)
   }, [])
 
+  const handleOnChange = useCallback((value: string) => {
+    setComment(() => value)
+  }, [comment])
+
+  const handleSendComment = useCallback(() => {
+    Alert.alert(comment)
+  }, [comment])
+
   useImperativeHandle(ref, () => ({
     handleClose,
     handleOpen
   }))
+
+  useEffect(() => {
+    Keyboard.addListener('keyboardWillHide', () => {
+      bottomSheetRef?.current?.snapToPosition('75%')
+    })
+  }, [])
 
   const handleRenderItem = useCallback((item: ListRenderItemInfo<IComment>) => {
     return (
@@ -114,7 +129,7 @@ const CommentModal = (_props: unknown, ref: React.Ref<ICommentModalRef>): React.
         snapPoints={snapPoints}
         index={1}
         backdropComponent={CustomBackdrop}
-        enableContentPanningGesture={false}
+        enablePanDownToClose={false}
       >
         <View style={Layout.fullPage}>
           <BottomSheetHeader
@@ -136,10 +151,15 @@ const CommentModal = (_props: unknown, ref: React.Ref<ICommentModalRef>): React.
                     name='send'
                     size={s(20)}
                     color={ColorPrimary.primary40}
+                    onPress={handleSendComment}
                   />
                 }
                 placeholder='Comment...'
-                isBottomSheet
+                size='sm'
+                isBottomSheet={Platform.select({ ios: true, android: false })}
+                onChangeText={handleOnChange}
+                value={comment}
+                innerRef={inputRef}
               />
             </View>
           </View>

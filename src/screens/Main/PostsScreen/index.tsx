@@ -65,22 +65,22 @@ const PostsScreen: React.FC = () => {
 
   return (
     <BottomSheetModalProvider>
-    <SafeAreaView style={styles.page}>
-      <Header
-        title='Unsiagram'
-        onPressRightIcon={handleMessengerPress}
-      />
-      <View style={styles.main}>
-        <FlatList
-          data={posts}
-          renderItem={handleRenderItem}
-          keyExtractor={(item) => item.id}
-          showsVerticalScrollIndicator={false}
-          ListHeaderComponent={<LatestPost />}
+      <SafeAreaView style={styles.page}>
+        <Header
+          title='Unsiagram'
+          onPressRightIcon={handleMessengerPress}
         />
-      </View>
-      <CommentModal ref={commentRef} />
-    </SafeAreaView>
+        <View style={styles.main}>
+          <FlatList
+            data={posts}
+            renderItem={handleRenderItem}
+            keyExtractor={(item) => item.id}
+            showsVerticalScrollIndicator={false}
+            ListHeaderComponent={<LatestPost />}
+          />
+        </View>
+        <CommentModal ref={commentRef} />
+      </SafeAreaView>
     </BottomSheetModalProvider>
   )
 }
