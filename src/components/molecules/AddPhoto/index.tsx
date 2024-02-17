@@ -7,18 +7,15 @@ import { s } from '@src/helpers'
 import { type IAddPhotoProps } from '@src/interfaces'
 import CloseButton from '@src/components/atoms/CloseButton'
 
-const AddPhoto: React.FC<IAddPhotoProps> = ({ onAddPhoto, onRemovePhoto }) => {
-  // const photo = 'https://rare-gallery.com/mocahbig/1374623-ive-kpop-love-dive-gaeul-4k-pc-wallpaper.jpg'
-  const photo = null
-
+const AddPhoto: React.FC<IAddPhotoProps> = ({ onAddPhoto, onRemovePhoto, uri = null }) => {
   return (
     <>
-      <View style={[styles.card, photo && styles.borderNone]}>
-        {photo
+      <View style={[styles.card, uri ? styles.borderNone : null]}>
+        {uri
           ? (
               <>
                 <Image
-                  source={{ uri: photo }}
+                  source={{ uri }}
                   style={styles.img}
                 />
                 <View style={styles.backdrop} />

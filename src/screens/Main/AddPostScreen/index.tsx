@@ -1,15 +1,30 @@
-import { AddPhoto, BottomSheetHeader, Button, CustomBackdrop, Header, Input, SafeAreaView } from '@src/components'
+import { AddPhoto, BottomSheetHeader, Button, CustomBackdrop, ErrorMessage, Header, Input, SafeAreaView } from '@src/components'
 import React from 'react'
-import { Alert, Keyboard, KeyboardAvoidingView, ScrollView, Text, TouchableWithoutFeedback, View } from 'react-native'
+import { FlatList, Keyboard, KeyboardAvoidingView, ScrollView, Text, TouchableWithoutFeedback, View } from 'react-native'
 import styles from './styles'
 import { ColorNeutral, ColorPrimary, Layout } from '@src/themes'
 import { useAddPostScreen } from '@src/hooks'
 import { BottomSheetModal, BottomSheetModalProvider } from '@gorhom/bottom-sheet'
 import { Ionicons } from '@expo/vector-icons'
 import { s } from '@src/helpers'
+import { Controller } from 'react-hook-form'
 
 const AddPostScreen: React.FC = () => {
-  const { snapPoints, handleCloseModal, handleOpenModal, bottomSheetModalRef } = useAddPostScreen()
+  const {
+    snapPoints,
+    handleCloseModal,
+    handleOpenModal,
+    bottomSheetModalRef,
+    control,
+    handleAddPost,
+    handleSubmit,
+    errors,
+    photos,
+    isError,
+    handleChoosePhotoFromGalery,
+    handleRemovePhoto,
+    handleChoosePhotoByCamera
+  } = useAddPostScreen()
 
   return (
     <BottomSheetModalProvider>
@@ -37,11 +52,21 @@ const AddPostScreen: React.FC = () => {
                       What are you thinking of ?
                     </Text>
                     <View style={styles.field}>
-                      <Input
-                        multiline
-                        placeholder='Type your caption here...'
-                        placeholderTextColor={ColorNeutral.neutral60}
-                        size='sm'
+                      <Controller
+                        control={control}
+                        name='caption'
+                        render={({ field: { onBlur, onChange, value } }) => (
+                          <Input
+                            multiline
+                            placeholder='Type your caption here...'
+                            placeholderTextColor={ColorNeutral.neutral60}
+                            size='sm'
+                            value={value}
+                            onChangeText={onChange}
+                            onBlur={onBlur}
+                            message={errors?.caption?.message ?? undefined}
+                          />
+                        )}
                       />
                     </View>
                   </View>
@@ -50,30 +75,30 @@ const AddPostScreen: React.FC = () => {
                       Photos
                     </Text>
                     <View style={[Layout.flexRow, styles.field]}>
-                      <ScrollView horizontal showsHorizontalScrollIndicator={false} alwaysBounceHorizontal={false}>
-                        <View style={styles.photoContainer}>
+                      <FlatList
+                        data={photos}
+                        horizontal
+                        showsHorizontalScrollIndicator={false}
+                        alwaysBounceHorizontal={false}
+                        keyExtractor={(photo) => photo.id}
+                        renderItem={({ item }) => (
                           <AddPhoto
                             onAddPhoto={handleOpenModal}
-                            onRemovePhoto={() => { Alert.alert('ok') }}
+                            onRemovePhoto={handleRemovePhoto.bind(this, item.id)}
+                            uri={item.uri as any}
                           />
-                          <AddPhoto
-                            onAddPhoto={handleOpenModal}
-                            onRemovePhoto={() => { Alert.alert('ok') }}
-                          />
-                          <AddPhoto
-                            onAddPhoto={handleOpenModal}
-                            onRemovePhoto={() => { Alert.alert('ok') }}
-                          />
-                          <AddPhoto
-                            onAddPhoto={handleOpenModal}
-                            onRemovePhoto={() => { Alert.alert('ok') }}
-                          />
-                        </View>
-                      </ScrollView>
+                        )}
+                        contentContainerStyle={styles.photoContainer}
+                      />
                     </View>
+                    {(isError) && (
+                      <ErrorMessage>
+                        Please choose at least one photo
+                      </ErrorMessage>
+                    )}
                   </View>
                   <View style={styles.control}>
-                    <Button>
+                    <Button onPress={handleSubmit(handleAddPost)}>
                       Submit
                     </Button>
                   </View>
@@ -108,6 +133,7 @@ const AddPostScreen: React.FC = () => {
                     size={s(23)}
                   />
                 }
+                onPress={handleChoosePhotoFromGalery}
               >
                 Galery
               </Button>
@@ -122,6 +148,7 @@ const AddPostScreen: React.FC = () => {
                     size={s(23)}
                   />
                 }
+                onPress={handleChoosePhotoByCamera}
               >
                 Camera
               </Button>

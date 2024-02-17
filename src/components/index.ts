@@ -16,6 +16,7 @@ import PhotoProfile from './molecules/PhotoProfile'
 import HeaderSearchAccount from './molecules/HeaderSearchAccount'
 import Card from './atoms/Card'
 import AddPhoto from './molecules/AddPhoto'
+import ErrorMessage from './atoms/ErrorMessage'
 
 export {
   ReduxWrapper,
@@ -35,5 +36,6 @@ export {
   PhotoProfile,
   HeaderSearchAccount,
   Card,
-  AddPhoto
+  AddPhoto,
+  ErrorMessage
 }
