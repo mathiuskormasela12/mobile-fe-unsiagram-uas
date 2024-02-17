@@ -23,7 +23,8 @@ const AddPostScreen: React.FC = () => {
     isError,
     handleChoosePhotoFromGalery,
     handleRemovePhoto,
-    handleChoosePhotoByCamera
+    handleChoosePhotoByCamera,
+    flatListRef
   } = useAddPostScreen()
 
   return (
@@ -84,11 +85,12 @@ const AddPostScreen: React.FC = () => {
                         renderItem={({ item }) => (
                           <AddPhoto
                             onAddPhoto={handleOpenModal}
-                            onRemovePhoto={handleRemovePhoto.bind(this, item.id)}
-                            uri={item.uri as any}
+                            onRemovePhoto={handleRemovePhoto.bind(this, item.id as string)}
+                            uri={item.uri}
                           />
                         )}
                         contentContainerStyle={styles.photoContainer}
+                        ref={flatListRef}
                       />
                     </View>
                     {(isError) && (

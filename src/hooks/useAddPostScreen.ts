@@ -4,14 +4,16 @@ import { launchCamera, launchImagePicker } from '@src/helpers'
 import { type IPhoto, type IAddPost } from '@src/interfaces'
 import { addPostSchema } from '@src/schemas'
 import { type AddPostScreenHook } from '@src/types'
-import { useCallback, useMemo, useRef, useState } from 'react'
+import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import { type SubmitHandler, useForm } from 'react-hook-form'
+import { type FlatList } from 'react-native'
 
 export const useAddPostScreen: AddPostScreenHook = () => {
   const snapPoints = useMemo(() => ['30%', '30%'], [])
   const bottomSheetModalRef = useRef<BottomSheetModal>(null)
   const [photos, setPhotos] = useState<IPhoto[]>([{ id: Date.now().toString(), uri: null }])
   const [isError, setIsError] = useState<boolean>(false)
+  const flatListRef = useRef<FlatList>(null)
 
   const {
     control,
@@ -63,6 +65,13 @@ export const useAddPostScreen: AddPostScreenHook = () => {
     }
   }, [])
 
+  useEffect(() => {
+    flatListRef?.current?.scrollToIndex({
+      animated: true,
+      index: 0
+    })
+  }, [photos])
+
   const handleRemovePhoto = useCallback((id: string) => {
     setPhotos((currentPhotos) => {
       return currentPhotos?.filter(item => item.id !== id)
@@ -82,6 +91,7 @@ export const useAddPostScreen: AddPostScreenHook = () => {
     isError,
     handleChoosePhotoFromGalery,
     handleRemovePhoto,
-    handleChoosePhotoByCamera
+    handleChoosePhotoByCamera,
+    flatListRef
   }
 }
