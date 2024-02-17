@@ -12,6 +12,9 @@ export const Layout = StyleSheet.create({
   justifyEnd: {
     justifyContent: 'flex-end'
   },
+  justifyCenter: {
+    justifyContent: 'center'
+  },
   flexCenter: {
     justifyContent: 'center',
     alignItems: 'center'

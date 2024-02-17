@@ -5,9 +5,9 @@ import { type IButtonProps } from '@src/interfaces'
 import { s } from '@src/helpers'
 import { ColorNeutral } from '@src/themes'
 
-const Button: React.FC<IButtonProps> = ({ children, onPress, variant = 'primary', isLoading = false, disabled = false }) => {
+const Button: React.FC<IButtonProps> = ({ leftIcon, outline, children, onPress, variant = 'primary', isLoading = false, disabled = false }) => {
   const handleStyle = useCallback(({ pressed }: { pressed: boolean }) => {
-    return pressed ? [styles.container, styles.isPressed, styles[variant], disabled && styles.disabled] : [styles[variant], styles.container, disabled && styles.disabled]
+    return pressed ? [styles.container, styles.isPressed, styles[variant], disabled && styles.disabled, outline && styles.outline] : [styles[variant], styles.container, disabled && styles.disabled, outline && styles.outline]
   }, [disabled])
 
   return (
@@ -18,7 +18,17 @@ const Button: React.FC<IButtonProps> = ({ children, onPress, variant = 'primary'
             <ActivityIndicator size={s(30)} color={ColorNeutral.neutral0}/>
             )
           : (
-              <Text style={[styles.text, disabled && styles.textDisabled]}>{children}</Text>
+              <View style={styles.childContainer}>
+                {leftIcon && leftIcon}
+                <Text style={[
+                  styles.text,
+                  disabled && styles.textDisabled,
+                  (outline && variant === 'primary') ? styles.textPrimary : (outline && variant === 'secondary') ? styles.textSecondary : (outline && variant === 'danger') ? styles.textDanger : null
+                ]}
+                >
+                  {children}
+                </Text>
+              </View>
             )}
 
        </Pressable>
