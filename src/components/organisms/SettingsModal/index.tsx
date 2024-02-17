@@ -1,7 +1,7 @@
 import { BottomSheetModal, BottomSheetScrollView } from '@gorhom/bottom-sheet'
 import CustomBackdrop from '@src/components/atoms/CustomBackdrop'
 import BottomSheetHeader from '@src/components/molecules/BottomSheetHeader'
-import { s, settingsModalRef } from '@src/helpers'
+import { s } from '@src/helpers'
 import { ColorNeutral, Layout } from '@src/themes'
 import React, { useCallback, useMemo, useRef, useState } from 'react'
 import { Pressable, Text, View } from 'react-native'
@@ -13,9 +13,9 @@ import { setToken } from '@src/redux/slices/authSlice'
 import { useNavigation } from '@react-navigation/native'
 import { type RootStackScreenProps } from '@src/types'
 import ConfirmationModal from '@src/components/atoms/ConfirmationModal'
-import { type IConfirmationModalRef } from '@src/interfaces'
+import { type ISettingsModalProps, type IConfirmationModalRef } from '@src/interfaces'
 
-const SettingsModal: React.FC = () => {
+const SettingsModal: React.FC<ISettingsModalProps> = ({ innerRef: settingsModalRef }) => {
   const snapPoints = useMemo(() => ['35%', '35%'], [])
   const dispatch = useDispatch<AppDispatch>()
   const navigation = useNavigation<RootStackScreenProps<'MainScreen'>['navigation']>()

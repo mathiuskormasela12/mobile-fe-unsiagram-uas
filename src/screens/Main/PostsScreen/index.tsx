@@ -43,7 +43,7 @@ const posts: IGetPostResponse[] = [
 ]
 
 const PostsScreen: React.FC = () => {
-  const { commentRef, handleOpenSetting } = usePostsScreen()
+  const { commentRef, handleOpenSetting, settingsModalRef } = usePostsScreen()
 
   const handleOpenCommentModal = useCallback(() => {
     commentRef.current?.handleOpen()
@@ -80,7 +80,7 @@ const PostsScreen: React.FC = () => {
           />
         </View>
         <CommentModal ref={commentRef} />
-        <SettingsModal />
+        <SettingsModal innerRef={settingsModalRef} />
       </SafeAreaView>
     </BottomSheetModalProvider>
   )

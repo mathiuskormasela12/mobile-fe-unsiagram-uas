@@ -1,6 +1,7 @@
 import { type BottomSheetModal } from '@gorhom/bottom-sheet'
+import { type BottomSheetModalMethods } from '@gorhom/bottom-sheet/lib/typescript/types'
 import { yupResolver } from '@hookform/resolvers/yup'
-import { launchCamera, launchImagePicker, settingsModalRef } from '@src/helpers'
+import { launchCamera, launchImagePicker } from '@src/helpers'
 import { type IPhoto, type IAddPost } from '@src/interfaces'
 import { addPostSchema } from '@src/schemas'
 import { type AddPostScreenHook } from '@src/types'
@@ -14,6 +15,7 @@ export const useAddPostScreen: AddPostScreenHook = () => {
   const [photos, setPhotos] = useState<IPhoto[]>([{ id: Date.now().toString(), uri: null }])
   const [isError, setIsError] = useState<boolean>(false)
   const flatListRef = useRef<FlatList>(null)
+  const settingsModalRef = useRef<BottomSheetModalMethods>(null)
 
   const {
     control,
@@ -97,6 +99,7 @@ export const useAddPostScreen: AddPostScreenHook = () => {
     handleRemovePhoto,
     handleChoosePhotoByCamera,
     flatListRef,
-    handleOpenSettingsModal
+    handleOpenSettingsModal,
+    settingsModalRef
   }
 }
