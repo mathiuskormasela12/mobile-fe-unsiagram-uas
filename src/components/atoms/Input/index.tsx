@@ -23,10 +23,10 @@ const Input: React.FC<IInputProps> = ({
 
   switch (size) {
     case 'sm':
-      inputStyles.push(style.sm)
+      inputStyles.push(props.multiline ? style.smTextArea : style.sm)
       break
     default :
-      inputStyles.push(style.md)
+      inputStyles.push(props.multiline ? style.mdTextArea : style.md)
   }
 
   const TextField = isBottomSheet ? BottomSheetTextInput : TextInput

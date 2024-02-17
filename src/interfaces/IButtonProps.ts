@@ -1,3 +1,4 @@
+import type React from 'react'
 import { type PropsWithChildren } from 'react'
 
 export interface IButtonProps extends PropsWithChildren {
@@ -5,4 +6,6 @@ export interface IButtonProps extends PropsWithChildren {
   variant?: 'primary' | 'secondary' | 'danger'
   isLoading?: boolean
   disabled?: boolean
+  outline?: boolean
+  leftIcon?: React.ReactNode
 }

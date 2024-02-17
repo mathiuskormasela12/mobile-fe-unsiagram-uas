@@ -15,6 +15,7 @@ import CustomBackdrop from './atoms/CustomBackdrop'
 import PhotoProfile from './molecules/PhotoProfile'
 import HeaderSearchAccount from './molecules/HeaderSearchAccount'
 import Card from './atoms/Card'
+import AddPhoto from './molecules/AddPhoto'
 
 export {
   ReduxWrapper,
@@ -33,5 +34,6 @@ export {
   CustomBackdrop,
   PhotoProfile,
   HeaderSearchAccount,
-  Card
+  Card,
+  AddPhoto
 }

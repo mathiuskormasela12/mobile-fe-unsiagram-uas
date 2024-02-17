@@ -51,6 +51,20 @@ const style = StyleSheet.create({
     height: Platform.select({ ios: s(45), android: s(45) }),
     fontSize: s(15),
     borderRadius: s(10)
+  },
+  mdTextArea: {
+    height: Platform.select({ ios: s(154), android: s(152) }),
+    fontSize: s(15),
+    borderRadius: s(10),
+    alignItems: 'flex-start',
+    paddingTop: s(12)
+  },
+  smTextArea: {
+    height: Platform.select({ ios: s(145), android: s(145) }),
+    fontSize: s(15),
+    borderRadius: s(10),
+    alignItems: 'flex-start',
+    paddingTop: s(12)
   }
 })
 
