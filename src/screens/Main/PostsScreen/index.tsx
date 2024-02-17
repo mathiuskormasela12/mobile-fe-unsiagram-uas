@@ -1,4 +1,4 @@
-import { CommentModal, Header, LatestPost, PostCard, SafeAreaView } from '@src/components'
+import { CommentModal, Header, LatestPost, PostCard, SafeAreaView, SettingsModal } from '@src/components'
 import React, { useCallback } from 'react'
 import { FlatList, type ListRenderItemInfo, View } from 'react-native'
 import styles from './styles'
@@ -43,7 +43,7 @@ const posts: IGetPostResponse[] = [
 ]
 
 const PostsScreen: React.FC = () => {
-  const { handleMessengerPress, commentRef } = usePostsScreen()
+  const { commentRef, handleOpenSetting } = usePostsScreen()
 
   const handleOpenCommentModal = useCallback(() => {
     commentRef.current?.handleOpen()
@@ -68,7 +68,7 @@ const PostsScreen: React.FC = () => {
       <SafeAreaView style={styles.page}>
         <Header
           title='Unsiagram'
-          onPressRightIcon={handleMessengerPress}
+          onPressRightIcon={handleOpenSetting}
         />
         <View style={styles.main}>
           <FlatList
@@ -80,6 +80,7 @@ const PostsScreen: React.FC = () => {
           />
         </View>
         <CommentModal ref={commentRef} />
+        <SettingsModal />
       </SafeAreaView>
     </BottomSheetModalProvider>
   )

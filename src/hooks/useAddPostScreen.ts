@@ -1,6 +1,6 @@
 import { type BottomSheetModal } from '@gorhom/bottom-sheet'
 import { yupResolver } from '@hookform/resolvers/yup'
-import { launchCamera, launchImagePicker } from '@src/helpers'
+import { launchCamera, launchImagePicker, settingsModalRef } from '@src/helpers'
 import { type IPhoto, type IAddPost } from '@src/interfaces'
 import { addPostSchema } from '@src/schemas'
 import { type AddPostScreenHook } from '@src/types'
@@ -78,6 +78,10 @@ export const useAddPostScreen: AddPostScreenHook = () => {
     })
   }, [])
 
+  const handleOpenSettingsModal = useCallback(() => {
+    settingsModalRef?.current?.present()
+  }, [])
+
   return {
     snapPoints,
     handleCloseModal,
@@ -92,6 +96,7 @@ export const useAddPostScreen: AddPostScreenHook = () => {
     handleChoosePhotoFromGalery,
     handleRemovePhoto,
     handleChoosePhotoByCamera,
-    flatListRef
+    flatListRef,
+    handleOpenSettingsModal
   }
 }

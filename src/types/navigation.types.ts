@@ -4,10 +4,7 @@ import { type NativeStackScreenProps } from '@react-navigation/native-stack'
 export type RootStackParamList = {
   RegisterScreen: undefined
   LoginScreen: undefined
-  ForgotPasswordScreen: undefined
   ResetPasswordScreen: undefined
-  ChatListScreen: undefined
-  ChatRoomScreen: undefined
   MainScreen: undefined
 }
 

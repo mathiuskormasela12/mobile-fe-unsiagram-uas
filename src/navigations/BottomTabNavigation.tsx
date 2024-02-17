@@ -27,7 +27,7 @@ const BottomTabNavigation: React.FC = () => {
         tabBarShowLabel: false
       }}
       sceneContainerStyle={{
-        backgroundColor: 'red'
+        backgroundColor: ColorNeutral.neutral0
       }}
     >
       <Stack.Screen
@@ -37,6 +37,16 @@ const BottomTabNavigation: React.FC = () => {
           title: 'Post',
           tabBarIcon: ({ color }) => {
             return <Entypo name='home' color={color} size={s(26)} />
+          }
+        }}
+        listeners={({ navigation, route }) => {
+          return {
+            tabPress: (event) => {
+              event.preventDefault()
+              loginRequired(() => {
+                navigation.navigate(route.name)
+              })
+            }
           }
         }}
       />
@@ -49,12 +59,12 @@ const BottomTabNavigation: React.FC = () => {
             return <AntDesign name='search1' color={color} size={s(26)} />
           }
         }}
-        listeners={({ navigation }) => {
+        listeners={({ navigation, route }) => {
           return {
             tabPress: (event) => {
               event.preventDefault()
               loginRequired(() => {
-                navigation.navigate('SearchAccountScreen')
+                navigation.navigate(route.name)
               })
             }
           }
@@ -69,6 +79,16 @@ const BottomTabNavigation: React.FC = () => {
             return <MaterialIcons name='add-circle' color={color} size={s(26)} />
           }
         }}
+        listeners={({ navigation, route }) => {
+          return {
+            tabPress: (event) => {
+              event.preventDefault()
+              loginRequired(() => {
+                navigation.navigate(route.name)
+              })
+            }
+          }
+        }}
       />
       <Stack.Screen
         name='MyAccountScreen'
@@ -77,6 +97,16 @@ const BottomTabNavigation: React.FC = () => {
           title: 'Account',
           tabBarIcon: ({ color }) => {
             return <Ionicons name='person-sharp' color={color} size={s(26)} />
+          }
+        }}
+        listeners={({ navigation, route }) => {
+          return {
+            tabPress: (event) => {
+              event.preventDefault()
+              loginRequired(() => {
+                navigation.navigate(route.name)
+              })
+            }
           }
         }}
       />

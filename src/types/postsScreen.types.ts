@@ -1,6 +1,6 @@
 import { type ICommentModalRef } from '@src/interfaces'
 
 export type PostsScreenHook = () => {
-  handleMessengerPress: () => void
+  handleOpenSetting: () => void
   commentRef: React.MutableRefObject<ICommentModalRef>
 }

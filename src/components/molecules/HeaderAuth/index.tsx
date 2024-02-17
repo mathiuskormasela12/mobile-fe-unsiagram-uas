@@ -3,11 +3,12 @@ import { Pressable, Text, View } from 'react-native'
 import styles from './styles'
 import { Layout } from '@src/themes'
 import BackButton from '@src/components/atoms/BackButton'
-import { useNavigation } from '@react-navigation/native'
-import { type RootStackScreenProps } from '@src/types'
+import { useNavigation, useRoute } from '@react-navigation/native'
+import { type RootStackParamList, type RootStackScreenProps } from '@src/types'
 
 const HeaderAuth: React.FC = () => {
   const navigation = useNavigation<RootStackScreenProps<'LoginScreen' | 'RegisterScreen'>['navigation']>()
+  const route = useRoute<RootStackScreenProps<'LoginScreen' | 'RegisterScreen'>['route']>()
 
   const handleGoBack = useCallback(() => {
     if (navigation.canGoBack()) {
@@ -15,8 +16,8 @@ const HeaderAuth: React.FC = () => {
     }
   }, [])
 
-  const handleContinueAsGuest = useCallback(() => {
-    navigation.navigate('MainScreen')
+  const handleContinueToAuthPage = useCallback((screenName: keyof RootStackParamList) => {
+    navigation.navigate(screenName)
   }, [])
 
   return (
@@ -26,9 +27,19 @@ const HeaderAuth: React.FC = () => {
           <BackButton onPress={handleGoBack} />
         </View>
         <View style={[styles.col, Layout.flexRow, Layout.justifyEnd]}>
-          <Pressable onPress={handleContinueAsGuest}>
-            <Text style={styles.textButton}>Continue as guest</Text>
-          </Pressable>
+          {route?.name === 'LoginScreen'
+            ? (
+             <Pressable onPress={handleContinueToAuthPage.bind(this, 'RegisterScreen')}>
+              <Text style={styles.textButton}>Create Account</Text>
+            </Pressable>
+              )
+            : route?.name === 'RegisterScreen'
+              ? (
+            <Pressable onPress={handleContinueToAuthPage.bind(this, 'LoginScreen')}>
+              <Text style={styles.textButton}>Sign In Now</Text>
+            </Pressable>
+                )
+              : <></>}
         </View>
       </View>
     </View>

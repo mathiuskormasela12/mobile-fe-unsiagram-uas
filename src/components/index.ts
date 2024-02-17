@@ -17,6 +17,8 @@ import HeaderSearchAccount from './molecules/HeaderSearchAccount'
 import Card from './atoms/Card'
 import AddPhoto from './molecules/AddPhoto'
 import ErrorMessage from './atoms/ErrorMessage'
+import SettingsModal from './organisms/SettingsModal'
+import ConfirmationModal from './atoms/ConfirmationModal'
 
 export {
   ReduxWrapper,
@@ -37,5 +39,7 @@ export {
   HeaderSearchAccount,
   Card,
   AddPhoto,
-  ErrorMessage
+  ErrorMessage,
+  SettingsModal,
+  ConfirmationModal
 }

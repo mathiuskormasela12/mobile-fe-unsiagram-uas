@@ -19,4 +19,5 @@ export type AddPostScreenHook = () => {
   handleChoosePhotoByCamera: () => Promise<void>
   handleRemovePhoto: (id: string) => void
   flatListRef: React.RefObject<FlatList<any>>
+  handleOpenSettingsModal: () => void
 }

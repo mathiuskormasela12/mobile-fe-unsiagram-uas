@@ -1,4 +1,4 @@
-import { AddPhoto, BottomSheetHeader, Button, CustomBackdrop, ErrorMessage, Header, Input, SafeAreaView } from '@src/components'
+import { AddPhoto, BottomSheetHeader, Button, ConfirmationModal, CustomBackdrop, ErrorMessage, Header, Input, SafeAreaView, SettingsModal } from '@src/components'
 import React from 'react'
 import { FlatList, Keyboard, KeyboardAvoidingView, ScrollView, Text, TouchableWithoutFeedback, View } from 'react-native'
 import styles from './styles'
@@ -24,7 +24,8 @@ const AddPostScreen: React.FC = () => {
     handleChoosePhotoFromGalery,
     handleRemovePhoto,
     handleChoosePhotoByCamera,
-    flatListRef
+    flatListRef,
+    handleOpenSettingsModal
   } = useAddPostScreen()
 
   return (
@@ -32,7 +33,7 @@ const AddPostScreen: React.FC = () => {
       <SafeAreaView style={styles.page}>
         <Header
           title='Unsiagram'
-          onPressRightIcon={() => {}}
+          onPressRightIcon={handleOpenSettingsModal}
         />
         <View style={[
           styles.hero,
@@ -158,6 +159,8 @@ const AddPostScreen: React.FC = () => {
           </View>
         </View>
       </BottomSheetModal>
+      <SettingsModal />
+      <ConfirmationModal title='Logout' subtitle='Are you sure to logout ?' onLeftButtonPress={() => {}} onRightButtonPress={() => {}} />
     </BottomSheetModalProvider>
   )
 }
