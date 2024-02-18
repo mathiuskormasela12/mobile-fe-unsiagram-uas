@@ -8,4 +8,5 @@ export interface IButtonProps extends PropsWithChildren {
   disabled?: boolean
   outline?: boolean
   leftIcon?: React.ReactNode
+  size?: 'sm' | 'md'
 }

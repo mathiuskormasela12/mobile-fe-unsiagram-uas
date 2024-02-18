@@ -5,7 +5,7 @@ import { type IButtonProps } from '@src/interfaces'
 import { s } from '@src/helpers'
 import { ColorNeutral } from '@src/themes'
 
-const Button: React.FC<IButtonProps> = ({ leftIcon, outline, children, onPress, variant = 'primary', isLoading = false, disabled = false }) => {
+const Button: React.FC<IButtonProps> = ({ size = 'md', leftIcon, outline, children, onPress, variant = 'primary', isLoading = false, disabled = false }) => {
   const textStyle: TextStyle[] = [styles.text]
   const buttonStyle: ViewStyle[] = [styles[variant], styles.container]
 
@@ -28,7 +28,7 @@ const Button: React.FC<IButtonProps> = ({ leftIcon, outline, children, onPress, 
   }, [disabled])
 
   return (
-    <View style={[styles.button]}>
+    <View style={[styles.button, styles[size]]}>
        <Pressable style={handleStyle} disabled={isLoading || disabled} onPress={onPress}>
         {isLoading
           ? (

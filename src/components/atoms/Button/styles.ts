@@ -7,13 +7,11 @@ const buttonWidth: DimensionValue = '100%'
 
 const styles = StyleSheet.create({
   button: {
-    width: buttonWidth,
-    height: buttonHeight,
     overflow: 'hidden'
   },
   container: {
-    width: buttonWidth,
-    height: buttonHeight,
+    width: '100%',
+    height: '100%',
     justifyContent: 'center',
     alignItems: 'center',
     borderRadius: s(8),
@@ -47,7 +45,7 @@ const styles = StyleSheet.create({
     color: ColorNeutral.neutral30
   },
   outline: {
-    backgroundColor: ColorNeutral.neutral0
+    backgroundColor: 'transparent'
   },
   textPrimary: {
     color: ColorPrimary.primary50
@@ -61,6 +59,14 @@ const styles = StyleSheet.create({
   childContainer: {
     flexDirection: 'row',
     gap: s(5)
+  },
+  md: {
+    width: buttonWidth,
+    height: buttonHeight
+  },
+  sm: {
+    height: Platform.select({ ios: s(44), android: s(42) }),
+    width: buttonWidth
   }
 })
 
