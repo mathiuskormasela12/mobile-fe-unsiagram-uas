@@ -6,6 +6,7 @@ export type RootStackParamList = {
   LoginScreen: undefined
   ResetPasswordScreen: undefined
   MainScreen: undefined
+  AccountScreen: undefined
 }
 
 export type RootStackBottomTabParamList = {

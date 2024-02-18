@@ -1,12 +1,15 @@
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
-import { AddPostScreen, MyAccountScreen, PostsScreen, SearchAccountScreen } from '@src/screens'
-import { type RootStackBottomTabParamList } from '@src/types'
+import { AccountScreen, AddPostScreen, MyAccountScreen, PostsScreen, SearchAccountScreen } from '@src/screens'
+import { type RootStackParamList, type RootStackBottomTabParamList } from '@src/types'
 import React from 'react'
 import { Ionicons, AntDesign, MaterialIcons, Entypo } from '@expo/vector-icons'
 import { ColorNeutral, ColorPrimary } from '@src/themes'
 import { Platform } from 'react-native'
 import { s } from '@src/helpers'
 import { useLoginRequired } from '@src/hooks'
+import { createNativeStackNavigator } from '@react-navigation/native-stack'
+
+const NativeStack = createNativeStackNavigator<RootStackParamList>()
 
 const Stack = createBottomTabNavigator<RootStackBottomTabParamList>()
 
@@ -109,6 +112,10 @@ const BottomTabNavigation: React.FC = () => {
             }
           }
         }}
+      />
+      <NativeStack.Screen
+          name='AccountScreen'
+        component={AccountScreen}
       />
     </Stack.Navigator>
   )

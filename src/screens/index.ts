@@ -9,6 +9,7 @@ import PostsScreen from './Main/PostsScreen'
 import SearchAccountScreen from './Main/SearchAccountScreen'
 import AddPostScreen from './Main/AddPostScreen'
 import MyAccountScreen from './Main/MyAccountScreen'
+import AccountScreen from './Account/AccountScreen'
 
 export {
   RegisterScreen,
@@ -19,5 +20,6 @@ export {
   PostsScreen,
   SearchAccountScreen,
   AddPostScreen,
-  MyAccountScreen
+  MyAccountScreen,
+  AccountScreen
 }

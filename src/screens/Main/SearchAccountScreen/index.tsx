@@ -6,6 +6,8 @@ import { ColorNeutral, Layout } from '@src/themes'
 import { type IUser } from '@src/interfaces'
 import { Ionicons } from '@expo/vector-icons'
 import { s } from '@src/helpers'
+import { useNavigation } from '@react-navigation/native'
+import { type RootStackScreenProps } from '@src/types'
 
 const data: IUser[] = [
   {
@@ -91,13 +93,17 @@ const data: IUser[] = [
 ]
 
 const SearchAccountScreen: React.FC = () => {
+  const navigation = useNavigation<RootStackScreenProps<'AccountScreen'>['navigation']>()
+  const handleNavigateToAccountScreen = useCallback(() => {
+    navigation.navigate('AccountScreen')
+  }, [])
   const handleRenderItem = useCallback((item: ListRenderItemInfo<IUser>) => {
     return (
       <Card
         photo={item.item.photo}
         title={item.item.firstName}
         subtitle={`@${item.item.username}`}
-        onPress={() => {}}
+        onPress={handleNavigateToAccountScreen}
         secondSubtitle={'1m followers'}
       />
     )

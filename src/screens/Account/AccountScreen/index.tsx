@@ -44,7 +44,7 @@ const posts: IGetPostResponse[] = [
   }
 ]
 
-const MyAccountScreen: React.FC = () => {
+const AccountScreen: React.FC = () => {
   const { handleOpenSetting, commentRef, settingsModalRef, isFollowed, handleFollowed } = useMyAccountScreen()
 
   const handleOpenCommentModal = useCallback(() => {
@@ -150,4 +150,4 @@ const MyAccountScreen: React.FC = () => {
   )
 }
 
-export default MyAccountScreen
+export default AccountScreen

@@ -6,9 +6,9 @@ import { type ICard } from '@src/interfaces'
 import { s } from '@src/helpers'
 import { Layout } from '@src/themes'
 
-const Card: React.FC<ICard> = ({ title, subtitle, photo, secondSubtitle = null }) => {
+const Card: React.FC<ICard> = ({ title, subtitle, photo, secondSubtitle = null, onPress }) => {
   return (
-    <Pressable style={({ pressed }) => [Layout.flexRow, styles.card, pressed && styles.isPressed]}>
+    <Pressable onPress={onPress} style={({ pressed }) => [Layout.flexRow, styles.card, pressed && styles.isPressed]}>
       <View style={styles.leftCard}>
         <PhotoProfile size={s(65)} uri={photo} />
       </View>

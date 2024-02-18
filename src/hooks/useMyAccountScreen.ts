@@ -5,7 +5,7 @@ import { type MyAccountScreenHook } from '@src/types'
 import { useCallback, useRef, useState } from 'react'
 
 export const useMyAccountScreen: MyAccountScreenHook = () => {
-  const [isLiked, setIsLiked] = useState(false)
+  const [isFollowed, setIsFollowed] = useState(false)
   const navigation = useNavigation()
   const commentRef = useRef<ICommentModalRef>({
     handleClose: () => {},
@@ -17,8 +17,8 @@ export const useMyAccountScreen: MyAccountScreenHook = () => {
     navigation.goBack()
   }, [])
 
-  const handleLike = useCallback(() => {
-    setIsLiked((currentIsLiked) => !currentIsLiked)
+  const handleFollowed = useCallback(() => {
+    setIsFollowed((currentIsFollowed) => !currentIsFollowed)
   }, [])
 
   const handleOpenSetting = useCallback(() => {
@@ -26,8 +26,8 @@ export const useMyAccountScreen: MyAccountScreenHook = () => {
   }, [])
 
   return {
-    isLiked,
-    handleLike,
+    isFollowed,
+    handleFollowed,
     handleGoBack,
     commentRef,
     settingsModalRef,

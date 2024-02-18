@@ -2,8 +2,8 @@ import { type BottomSheetModalMethods } from '@gorhom/bottom-sheet/lib/typescrip
 import { type ICommentModalRef } from '@src/interfaces'
 
 export type MyAccountScreenHook = () => {
-  isLiked: boolean
-  handleLike: () => void
+  isFollowed: boolean
+  handleFollowed: () => void
   handleGoBack: () => void
   commentRef: React.MutableRefObject<ICommentModalRef>
   settingsModalRef: React.RefObject<BottomSheetModalMethods>
