@@ -82,7 +82,7 @@ const AccountScreen: React.FC = () => {
               <View style={Layout.fullPage}>
                 <ImageBackground
                   style={styles.photo}
-                  source={{ uri: 'https://rare-gallery.com/mocahbig/1374623-ive-kpop-love-dive-gaeul-4k-pc-wallpaper.jpg' }}
+                  source={{ uri: 'https://static.promediateknologi.id/crop/0x0:0x0/750x500/webp/photo/2023/04/12/Jang-Wonyoung-1-2705046685.jpg' }}
                 >
                   <View style={Layout.fullPage}>
                     <View style={styles.backdrop} />
