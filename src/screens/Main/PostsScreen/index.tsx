@@ -18,7 +18,7 @@ const posts: IGetPostResponse[] = [
       photo: 'https://a-static.besthdwallpaper.com/gaeul-from-ive-kpop-girls-group-wallpaper-2880x1800-99911_8.jpg',
       email: 'gaeul@gmail.com'
     },
-    photos: ['https://wallpapercave.com/wp/wp11279742.jpg', 'https://rare-gallery.com/mocahbig/1374623-ive-kpop-love-dive-gaeul-4k-pc-wallpaper.jpg'],
+    photos: ['https://asset-2.tstatic.net/tribunnewswiki/foto/bank/images/Gaeul-IVE.jpg', 'https://rare-gallery.com/mocahbig/1374623-ive-kpop-love-dive-gaeul-4k-pc-wallpaper.jpg'],
     likes: 200,
     caption: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum cum in magnam maxime? Perferendis natus, inventore rerum vero culpa molestias tempora at, consectetur voluptatem dolore dolor nulla in ullam sequi. Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum cum in magnam maxime? Perferendis natus, inventore rerum vero culpa molestias tempora at, consectetur voluptatem dolore dolor nulla in ullam sequi. Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum cum in magnam maxime? Perferendis natus, inventore rerum vero culpa molestias tempora at, consectetur voluptatem dolore dolor nulla in ullam sequi.',
     isLiked: true,

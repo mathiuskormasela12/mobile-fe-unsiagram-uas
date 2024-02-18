@@ -1,13 +1,11 @@
-import { Button, CommentModal, Header, PostCard, SafeAreaView, SettingsModal } from '@src/components'
+import { CommentModal, Header, PostCard, SafeAreaView, SettingsModal } from '@src/components'
 import React, { useCallback } from 'react'
 import { FlatList, ImageBackground, type ListRenderItemInfo, Text, View } from 'react-native'
 import styles from './styles'
-import { ColorNeutral, Layout } from '@src/themes'
+import { Layout } from '@src/themes'
 import { useMyAccountScreen } from '@src/hooks'
 import { type IGetPostResponse } from '@src/interfaces'
 import { BottomSheetModalProvider } from '@gorhom/bottom-sheet'
-import { AntDesign } from '@expo/vector-icons'
-import { s } from '@src/helpers'
 
 const posts: IGetPostResponse[] = [
   {
@@ -20,7 +18,7 @@ const posts: IGetPostResponse[] = [
       photo: 'https://a-static.besthdwallpaper.com/gaeul-from-ive-kpop-girls-group-wallpaper-2880x1800-99911_8.jpg',
       email: 'gaeul@gmail.com'
     },
-    photos: ['https://wallpapercave.com/wp/wp11279742.jpg', 'https://rare-gallery.com/mocahbig/1374623-ive-kpop-love-dive-gaeul-4k-pc-wallpaper.jpg'],
+    photos: ['https://asset-2.tstatic.net/tribunnewswiki/foto/bank/images/Gaeul-IVE.jpg', 'https://rare-gallery.com/mocahbig/1374623-ive-kpop-love-dive-gaeul-4k-pc-wallpaper.jpg'],
     likes: 200,
     caption: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum cum in magnam maxime? Perferendis natus, inventore rerum vero culpa molestias tempora at, consectetur voluptatem dolore dolor nulla in ullam sequi. Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum cum in magnam maxime? Perferendis natus, inventore rerum vero culpa molestias tempora at, consectetur voluptatem dolore dolor nulla in ullam sequi. Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum cum in magnam maxime? Perferendis natus, inventore rerum vero culpa molestias tempora at, consectetur voluptatem dolore dolor nulla in ullam sequi.',
     isLiked: true,
@@ -45,7 +43,7 @@ const posts: IGetPostResponse[] = [
 ]
 
 const MyAccountScreen: React.FC = () => {
-  const { handleOpenSetting, commentRef, settingsModalRef, isFollowed, handleFollowed } = useMyAccountScreen()
+  const { handleOpenSetting, commentRef, settingsModalRef } = useMyAccountScreen()
 
   const handleOpenCommentModal = useCallback(() => {
     commentRef.current?.handleOpen()
@@ -99,41 +97,6 @@ const MyAccountScreen: React.FC = () => {
                         <View style={styles.column}>
                           <Text style={[styles.text, Layout.textSemiBold]}>10</Text>
                           <Text style={styles.text}>Following</Text>
-                        </View>
-                        <View style={styles.followBtnContainer}>
-                          {isFollowed
-                            ? (
-                            <Button
-                              size='sm'
-                              variant='danger'
-                              leftIcon={
-                                <AntDesign
-                                  name='minus'
-                                  size={s(21)}
-                                  color={ColorNeutral.neutral0}
-                                />
-                              }
-                              onPress={handleFollowed}
-                            >
-                              Unfollow
-                            </Button>
-                              )
-                            : (
-                            <Button
-                              size='sm'
-                              variant='danger'
-                              leftIcon={
-                                <AntDesign
-                                  name='plus'
-                                  size={s(21)}
-                                  color={ColorNeutral.neutral0}
-                                />
-                              }
-                              onPress={handleFollowed}
-                            >
-                              Follow
-                            </Button>
-                              )}
                         </View>
                       </View>
                     </View>
